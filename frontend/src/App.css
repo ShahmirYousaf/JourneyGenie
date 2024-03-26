@@ -55,7 +55,7 @@ li{
 .btn{
     padding: .6rem 1.5rem;
     background: var(--Secondarycolor);
-    border-radius: 2.5rem;
+    border-radius: 10px;
     border: none;
     outline: none;
     cursor: pointer;
