@@ -16,6 +16,10 @@
     --textColor: hsl(240, 3%, 23%);
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: white;
 }

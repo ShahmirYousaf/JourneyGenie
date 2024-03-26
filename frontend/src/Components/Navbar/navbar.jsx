@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import './navbar.css'
+import './navbar.scss'
 import logo from '../../Assets/logo.png'
 import {AiFillCloseCircle} from 'react-icons/ai'
 import {TbGridDots} from 'react-icons/tb'
@@ -10,6 +11,10 @@ const Navbar = () => {
     // Function for toggling navBar
     const showNavBar = ()=>{
         setActive('navBar activeNavbar')
+    }
+     // Function for closing navBar
+     const removeNavBar = ()=>{
+        setActive('navBar')
     }
 
   return (
@@ -43,7 +48,7 @@ const Navbar = () => {
                         <a href="#" > Signup </a>
                     </button>
                 </ul>
-                <div className="closeNavBar">
+                <div onClick={removeNavBar} className="closeNavBar">
                     <AiFillCloseCircle className="icon"/>
                 </div>
             </div>

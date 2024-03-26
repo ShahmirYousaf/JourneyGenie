@@ -18,6 +18,8 @@
     box-shadow: 0 2px 4px rgba(2, 15, 29, 0.645);
 
     .logo{
+        height: auto;
+        width: 180px;
         color: var(--blackColor);
         cursor: pointer;
         align-items: center;
@@ -43,7 +45,7 @@
             transform: translate(-50%);
             z-index: 2000;
             box-shadow: 0 2px 4px rgba(2, 15, 29, 0.904);
-            transition: .3s ease-in-out;
+            transition: .2s ease-in-out;
 
             .navLists{
                 flex-direction: column;
@@ -104,6 +106,111 @@
 
         &:hover.icon{
             color: var(--Primarycolor);
+        }
+    }
+}
+
+/* MEDIA QUERIES */
+
+@media screen  and (min-width: 769px) {
+    .toggleNavBar, .closeNavBar{
+        display: none;
+    }
+
+    .header{
+        padding: 1.5rem 2rem;
+
+        .navbar{
+
+            .navLists{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: row;
+
+                .navItem{
+                    .navLink{
+                        color: var(--textColor);
+                        padding: 0 0.45rem;
+                        font-size: 0.9rem;
+                        font-weight: 500;
+
+                        &:hover{
+                            color: var(--Primarycolor);
+
+                        }
+
+                    }
+                }
+
+                .btn{
+                    margin-left: 2rem;
+                    a{
+                        color: var(--whiteColor);
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .header{
+        padding: 1.5rem 2rem;
+        .navBar{
+            .navLists{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: row;
+                .navItem{
+                    padding: 0 0.7rem;
+                    .navLink{
+                        color: var(--textColor);
+                        padding: 0 0.45rem;
+                        font-size: 0.9rem;
+                        font-weight: 500;
+
+                        &:hover{
+                            color: var(--Primarycolor);
+
+                        }
+                }
+            }
+            .btn{
+                margin-left: 2rem;
+                a{
+                    color: var(--whiteColor);
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}
+}
+
+@media screen and (min-width: 1240px) {
+    .header{
+        padding: 1rem 2.5rem;
+        .navBar{
+            .navLists{
+                .navItem{
+                    padding: 0 0.7rem;
+                    .navLink{
+                        color: var(--textColor);
+                        padding: 0 0.45rem;
+                        font-size: 0.9rem;
+                        font-weight: 500;
+
+                        &:hover{
+                            color: var(--Primarycolor);
+
+                        }
+                }
+                }
+
+            }
         }
     }
 }
