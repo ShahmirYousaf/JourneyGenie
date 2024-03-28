@@ -58,7 +58,7 @@ li{
 
 .btn{
     padding: .6rem 1.5rem;
-    background: var(--Secondarycolor);
+    background: var(--Primarycolor);
     border-radius: 10px;
     border: none;
     outline: none;
@@ -71,10 +71,27 @@ li{
 }
 
 .btn:hover{
-    background: var(--Primarycolor);
+    background: var(--Secondarycolor);
 }
 
 img{
     width: 100%;
     height: auto;
+}
+
+@media screen and (min-width: 1240px) {
+    .container{
+        width: 80% !important;
+        margin: auto !important;
+    }
+
+    .section{
+        padding: 6rem 0 4rem ;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+   body{
+    zoom: 1.7;
+   }
 }
