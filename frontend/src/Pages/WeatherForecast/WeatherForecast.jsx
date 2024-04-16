@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react'
+import 'bootstrap/dist/css/bootstrap.css';
+import './WeatherForecast.css'
 
 const WeatherForecast = () => {
     const [currentCity, setCurrentCity] = useState('Lahore');
     const [weatherData, setWeatherData] = useState(null);
 
-    useEffect(() => {
-        getWeatherData();
-    }, [currentCity]);
-
     const getWeatherData = async () => {
+        if (!currentCity)
+        {
+            setWeatherData(null); 
+            return;
+        }
+
         try {
           const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=848e4c9efef048e494f100521210205&q=${currentCity}&days=3&aqi=no&alerts=no`);
           const data = await response.json();
@@ -17,13 +21,19 @@ const WeatherForecast = () => {
           console.error('Error fetching weather data:', error);
         }
       };
-      
+    
+    useEffect(() => {
+        getWeatherData();
+    }, [currentCity]);
 
     const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const monthName = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
     const displayTodayWeather = () => {
-        if (!weatherData) return null;
+        if (!weatherData || !weatherData.forecast || !weatherData.forecast.forecastday[0]) 
+        {
+            return null;
+        }
 
         const date = new Date();
         const dateApi = weatherData.forecast.forecastday[0].date;
@@ -60,7 +70,9 @@ const WeatherForecast = () => {
 };
 
 const displayNextDaysWeather = () => {
-    if (!weatherData) return null;
+    if (!weatherData || !weatherData.forecast) {
+        return null;
+      }
 
     return weatherData.forecast.forecastday.slice(1).map((day, index) => (
       <div className="temp-card text-center shadow" key={index}>
@@ -93,9 +105,11 @@ const displayNextDaysWeather = () => {
     return m && monthName[m.getMonth()];
   };
 
-  const handleSearch = (e) => {
+  const handleOnChange = (e) => {
     setCurrentCity(e.target.value);
   };
+
+
 
   return (
     <section className="display-temp my-5 py-2" id="search">
@@ -106,8 +120,7 @@ const displayNextDaysWeather = () => {
             id="search-bar"
             className="w-100 mb-5"
             placeholder="&#xF002; Search City..."
-            style={{ fontFamily: 'Arial, FontAwesome' }}
-            onChange={handleSearch}
+            onChange={handleOnChange}
             value={currentCity}
           />
         </div>
