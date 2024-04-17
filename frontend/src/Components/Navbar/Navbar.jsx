@@ -3,6 +3,8 @@ import './navbar.css'
 import logo from '../../Assets/logo.png'
 import {AiFillCloseCircle} from 'react-icons/ai'
 import {TbGridDots} from 'react-icons/tb'
+import Home from '../../Pages/Home/Home'
+import Login from '../../Pages/Login/Login'
 
 const Navbar = () => {
 
@@ -28,7 +30,7 @@ const Navbar = () => {
             <div className={active}>
                 <ul className="navLists flex">
                     <li className="navItem">
-                        <a href="#" className="navLink">Home</a>
+                        <a href={<Home/>} className="navLink">Home</a>
                     </li>
 
                     <li className="navItem">
@@ -40,7 +42,7 @@ const Navbar = () => {
                     </li>
 
                     <li className="navItem">
-                        <a href="#" className="navLink">Login</a>
+                        <a href={<Login/>} className="navLink">Login</a>
                     </li>
 
                     <button className="btn">
