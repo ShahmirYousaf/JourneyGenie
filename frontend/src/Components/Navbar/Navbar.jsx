@@ -5,6 +5,7 @@ import {AiFillCloseCircle} from 'react-icons/ai'
 import {TbGridDots} from 'react-icons/tb'
 import Home from '../../Pages/Home/Home'
 import Login from '../../Pages/Login/Login'
+import Signup from '../../Pages/Signup/Signup'
 
 const Navbar = () => {
 
@@ -46,7 +47,7 @@ const Navbar = () => {
                     </li>
 
                     <button className="btn">
-                        <a href="#" > Signup </a>
+                        <a href={<Signup/>} > Signup </a>
                     </button>
                 </ul>
                 <div onClick={removeNavBar} className="closeNavBar">

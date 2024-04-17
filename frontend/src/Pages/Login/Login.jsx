@@ -16,13 +16,14 @@ const Login = () => {
         <img src={logo} className='logo' alt='Error'></img>
 
         <label htmlFor="username">Username</label>
-        <input type="text" placeholder="Email or Phone" id="username" required />
+        <input type="text" placeholder="Email" id="username" required />
 
         <label htmlFor="password">Password</label>
         <input type="password" placeholder="Password" id="password" required />
 
         <button type="submit">Log In</button>
       </form>
+      <div className="shape"></div>
     </div>
   );
 };
