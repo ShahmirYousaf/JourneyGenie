@@ -1,6 +1,7 @@
 import React, { useState }  from 'react'
 import './Signup.css'
 import logo from '../../Assets/logo.png';
+import axios from 'axios';
 
 const Signup = () => {
 
@@ -29,14 +30,20 @@ const Signup = () => {
         });
       };
     
-      const handleSubmit = (e) => {
+      const handleSubmit = async (e) => {
         e.preventDefault();
         const newErrors = validateForm(formData);
         if (Object.keys(newErrors).length > 0) {
           setErrors(newErrors);
           return;
         }
-        console.log('Form submitted:', formData);
+        try {
+          const response = await axios.post('/api/auth/Signup', formData);
+          console.log(response.data); // handle success
+        } catch (error) {
+          console.error(error.response.data); // handle error
+        }
+
         // Reset form after submission
         setFormData({
           firstName: '',

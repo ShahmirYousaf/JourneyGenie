@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import './Login.css'
 import logo from '../../Assets/logo.png'
+import axios from 'axios';
 
 const Login = () => {
 
@@ -23,13 +24,13 @@ const Login = () => {
     });
 };
 
-const handleSubmit = (e) => {
+const handleSubmit = async (e) => {
   e.preventDefault();
   
   if (!formData.username.trim()) {
       setErrors({
           ...errors,
-          username: 'Username is required'
+          username: 'Email is required'
       });
       return;
   }
@@ -39,6 +40,12 @@ const handleSubmit = (e) => {
           password: 'Password is required'
       });
       return;
+  }
+  try {
+    const response = await axios.post('/api/auth/login', formData);
+    console.log(response.data); // handle success, such as storing token in localStorage and redirecting user
+  } catch (error) {
+    setErrors(error.response.data.error); // handle error
   }
   
   console.log('Form submitted:', formData);
@@ -51,7 +58,7 @@ const handleSubmit = (e) => {
       <form onSubmit={handleSubmit} className="login-form">
         <img src={logo} className='logo' alt='Error'></img>
 
-        <label htmlFor="username">Username</label>
+        <label htmlFor="username">Email</label>
                 <input
                     type="text"
                     placeholder="Email"
