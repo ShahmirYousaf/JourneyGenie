@@ -6,7 +6,7 @@ import axios from 'axios';
 const Login = () => {
 
   const [formData, setFormData] = useState({
-    username: '',
+    email: '',
     password: ''
 });
 
@@ -27,10 +27,10 @@ const Login = () => {
 const handleSubmit = async (e) => {
   e.preventDefault();
   
-  if (!formData.username.trim()) {
+  if (!formData.email.trim()) {
       setErrors({
           ...errors,
-          username: 'Email is required'
+          email: 'Email is required'
       });
       return;
   }
@@ -42,7 +42,7 @@ const handleSubmit = async (e) => {
       return;
   }
   try {
-    const response = await axios.post('/api/auth/login', formData);
+    const response = await axios.post('/api/auth/Login', formData);
     console.log(response.data); // handle success, such as storing token in localStorage and redirecting user
   } catch (error) {
     setErrors(error.response.data.error); // handle error
@@ -58,17 +58,17 @@ const handleSubmit = async (e) => {
       <form onSubmit={handleSubmit} className="login-form">
         <img src={logo} className='logo' alt='Error'></img>
 
-        <label htmlFor="username">Email</label>
+        <label htmlFor="email">Email</label>
                 <input
                     type="text"
                     placeholder="Email"
-                    id="username"
-                    name="username"
-                    value={formData.username}
+                    id="email"
+                    name="email"
+                    value={formData.email}
                     onChange={handleChange}
                     required
                 />
-                {errors.username && <div className="error">{errors.username}</div>}
+                {errors.email && <div className="error">{errors.email}</div>}
 
                 <label htmlFor="password">Password</label>
                 <input

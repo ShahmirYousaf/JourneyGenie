@@ -71,7 +71,7 @@ const Signup = () => {
         }
         if (!data.age.trim()) {
           errors.age = 'Age is required';
-        } else if (isNaN(data.age) || parseInt(data.age) <= 0) {
+        } else if (isNaN(data.age) || parseInt(data.age) <= 0 || parseInt(data.age) < 18) {
           errors.age = 'Age must be a valid number';
         }
         if (!data.gender.trim()) {
