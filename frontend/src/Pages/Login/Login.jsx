@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import './Login.css'
-import logo from '../../Assets/logo.png'
+import logo from '../../Assets/jg-logo.png'
 import axios from 'axios';
 
 const Login = () => {
@@ -42,7 +42,7 @@ const handleSubmit = async (e) => {
       return;
   }
   try {
-    const response = await axios.post('/api/auth/Login', formData);
+    const response = await axios.post('http://localhost:8080/api/auth/Login', formData);
     console.log(response.data); // handle success, such as storing token in localStorage and redirecting user
   } catch (error) {
     setErrors(error.response.data.error); // handle error

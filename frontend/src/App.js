@@ -1,11 +1,13 @@
 import React from 'react'
 import './App.css'
-import LanguageTranslation from './Pages/LanguageTranslation/LanguageTranslation'
+import Signup from './Pages/Signup/Signup'
+import Login from './Pages/Login/Login'
 
 const App = () => {
   return (
     <>
-      <LanguageTranslation/>
+      {/* <Signup/> */}
+      <Login/>
     </>
   )
 }

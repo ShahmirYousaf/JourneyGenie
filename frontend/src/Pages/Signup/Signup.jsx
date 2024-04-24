@@ -1,7 +1,8 @@
 import React, { useState }  from 'react'
 import './Signup.css'
-import logo from '../../Assets/logo.png';
+import logo from '../../Assets/jg-logo.png';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
 
@@ -17,6 +18,8 @@ const Signup = () => {
       });
     
       const [errors, setErrors] = useState({});
+
+      const navigate = useNavigate();
     
       const handleChange = (e) => {
         const { name, value } = e.target;
@@ -38,8 +41,9 @@ const Signup = () => {
           return;
         }
         try {
-          const response = await axios.post('/api/auth/Signup', formData);
+          const response = await axios.post('http://localhost:8080/api/auth/Signup', formData);
           console.log(response.data); // handle success
+          navigate("../Login/Login")
         } catch (error) {
           console.error(error.response.data); // handle error
         }

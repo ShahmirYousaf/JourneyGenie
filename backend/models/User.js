@@ -26,7 +26,7 @@ const validate = (data) => {
         firstName : Joi.string().required().label("First Name"),
         lastName : Joi.string().required().label("Last Name"),
         age: Joi.number().integer().min(18).required().label("Age"),
-        gender: Joi.string().valid('male', 'female', 'other').required().label("Gender"),
+        gender: Joi.string().valid('male', 'female', 'other', 'Male', 'Female').required().label("Gender"),
         country: Joi.string().required().label("Country"),
         travelPreferences: Joi.string().required().label("Travel Preferences"),
         email: Joi.string().email().required().label("Email"),
