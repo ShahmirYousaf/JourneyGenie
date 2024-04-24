@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import countries from "./data";
 import './LanguageTranslation.css'
+import jsPDF from "jspdf";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const Translate = () => {
@@ -87,6 +88,18 @@ const Translate = () => {
       });
     });
   }, []);
+
+  const generatePDF = () => {
+    const doc = new jsPDF();
+    const fromText = document.querySelector(".from-text").value;
+    const toText = document.querySelector(".to-text").value;
+    doc.text(20, 20, "Original Text:");
+    doc.text(20, 30, fromText);
+    doc.text(20, 50, "Translated Text:");
+    doc.text(20, 60, toText);
+    doc.save("translation.pdf");
+  };
+
   return (
     <div className="language-translation-container">
     <h1 className="heading">TRANSLATE YOUR IDEAS</h1>
@@ -120,8 +133,10 @@ const Translate = () => {
             </li>
           </ul>
         </div>
-        <button>Translate Text</button>
+        <button className="translate-button">Translate Text</button>
+        <button className="pdf-button" onClick={generatePDF}>Generate PDF</button>
       </div>
+      
       </div>
   );
 };
