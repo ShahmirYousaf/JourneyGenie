@@ -88,9 +88,8 @@ const Translate = () => {
     });
   }, []);
   return (
-    <>
-    
-    <h1 className="heading">TRANSLATE TOUR IDEAS</h1>
+    <div className="language-translation-container">
+    <h1 className="heading">TRANSLATE YOUR IDEAS</h1>
       <div className="container">
         <div className="wrapper">
           <div className="text-input">
@@ -123,7 +122,7 @@ const Translate = () => {
         </div>
         <button>Translate Text</button>
       </div>
-    </>
+      </div>
   );
 };
 
