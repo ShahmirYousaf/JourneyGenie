@@ -1,1 +1,214 @@
-/*# sourceMappingURL=home.css.map */
+.maincontainer {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px; /* Adjust the padding to push content below the navbar */
+    height: calc(100vh - 50px); /* Subtract navbar height from viewport height */
+  }
+  
+  .backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .backgroundImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+  }
+  
+  .content {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); /* Center the content */
+    text-align: center;
+    color: #fff;
+    z-index: 1; 
+  }
+  
+  .content h1 {
+    font-size: 2.0rem;
+    padding-bottom: 10px;
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    max-width: 100%; /* Limit the width to container width */
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0; /* Start with opacity 0 */
+  }
+  
+
+.content h1.show,
+.content p.show {
+  opacity: 1; /* Transition to full opacity when class 'show' is added */
+}
+  .content p {
+    font-size: 1.25rem;    
+    margin-bottom: 20px;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0; /* Start with opacity 0 */
+  }
+  .buttoncontainer {
+    margin-top: 50px; /* Adjust the margin top to move the button down */
+    text-align: center; /* Center the button horizontally */
+  }
+  
+  
+  .getStartedButton {
+    background-color: #FEBA3F;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .getStartedButton:hover {
+    background-color: #FFA500;
+  }
+
+
+  .servicesContainer {
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  
+  .servicesList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allow services to wrap to the next line if needed */
+  }
+  
+  .service {
+    width: 200px; /* Adjust width of each service container */
+    height: 150px; /* Adjust height of each service container */
+    margin: 20px; /* Adjust margin between service containers */
+    background-color: #f0f0f0; /* Background color of service containers */
+    border-radius: 10px; /* Add border radius for rounded corners */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease; /* Add transition for smooth effect */
+  }
+  
+  .service:hover {
+    transform: scale(1.1); /* Increase scale on hover */
+  }
+  
+  .service h3 {
+    margin: 0; /* Remove default margin */
+    font-size: 0.8rem; /* Adjust font size as needed */
+    font-style: normal;
+  }
+
+  .servicesHeader{
+    padding-bottom: 20px;
+  }
+  
+  .icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(red, green, rgb(137, 93, 218), alpha);
+  }
+  
+  .icon-container h3 {
+    margin-top: 15px; /* Adjust margin top as needed */
+
+  }
+
+  .destinationContainer {
+    margin-top: 50px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 100px;
+  }
+  
+  .destinationHeader {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .destinationList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .destination {
+    width: calc(88.88% - 20px);
+    height: 350px;
+    margin: 0 10px 20px 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.5);
+    position: relative;
+  }
+  
+  .destinationContent {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    z-index: 1;
+    width: calc(40% - 40px); /* Fixed width */
+    height: 35%;
+  }
+  .destination h3 {
+    font-size: 1.2rem;
+  }
+  
+  .destination p {
+    font-size: 0.9rem;
+  }
+  
+  /* Style for small destination container */
+.destinationSmall {
+  width: calc(44.44% - 20px); /* Decreased width */
+  height: 250px;
+  margin: 0 10px 20px 10px;
+  position: relative;
+}
+
+.destinationSmall .destinationContent {
+  height: 50%;
+  width: calc(70% - 40px);
+  bottom: 20px;
+  left: 20px;
+}
+
+.destinationContent {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}
+
+.destinationbg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.destinationContent {
+  transform: scale(0.8);
+  transition: transform 0.5s ease-in-out;
+}
+
+.destination:hover .destinationContent {
+  transform: scale(1);
+}
