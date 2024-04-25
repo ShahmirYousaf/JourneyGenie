@@ -7,6 +7,10 @@ import d3 from '../../Assets/d3.jpg';
 import d4 from '../../Assets/d4.jpg';
 import d5 from '../../Assets/d5.jpg';
 import d6 from '../../Assets/d6.jpg';
+import blog1 from '../../Assets/blog1.jpg';
+import blog2 from '../../Assets/blog2.jpg';
+
+
 
 import './home.css';
 
@@ -161,7 +165,7 @@ const Home = () => {
         </div>
       </div>
 
-       <div className='destinationContainer'>
+      <div className='destinationContainer'>
         <div className="destinationHeader">
           <h2>Popular Destinations</h2>
         </div>
@@ -195,6 +199,33 @@ const Home = () => {
               <p>{smallDestinations[(smallDestinationIndex + 1) % smallDestinations.length].description}</p>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Blog Container */}
+      <div className="blogContainer">
+        <div className="blogHeader">
+          <h2>Explore More Travel Blogs</h2>
+        </div>
+        <div className="blogList">
+          {/* Individual Blog Posts */}
+          <div className="blogPost">
+            <img src={blog1} alt="Blog Post 1" />
+            <div className="blogContent">
+              <h3>Nomadic Matt</h3>
+              <p>The website that has been featured in major media time and time again because it’s got the best budget advice out there.</p>
+              <a href="https://www.nomadicmatt.com/">Read More</a>
+            </div>
+          </div>
+          <div className="blogPost">
+            <img src={blog2} alt="Blog Post 2" />
+            <div className="blogContent">
+              <h3>Travel Floss</h3>
+              <p>Explore hidden gems, local cultures and enjoy your life to the fullest. </p>
+              <a href="https://www.travelfoss.com/">Read More</a>
+            </div>
+          </div>
+          {/* Add more blog posts as needed */}
         </div>
       </div>
     </section>
