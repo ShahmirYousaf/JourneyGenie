@@ -9,9 +9,6 @@ import d5 from '../../Assets/d5.jpg';
 import d6 from '../../Assets/d6.jpg';
 import blog1 from '../../Assets/blog1.jpg';
 import blog2 from '../../Assets/blog2.jpg';
-
-
-
 import './home.css';
 
 const Home = () => {
