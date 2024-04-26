@@ -1,15 +1,17 @@
 import React from 'react'
-import './app.css'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import './App.css'
 import Navbar from './Components/Navbar/Navbar'
 import Home from './Components/Home/Home'
 import Footer from './Components/Footer/Footer'
+import CurrencyConverter from './Pages/Currency/CurrencyConverter'
 
 const App = () => {
   return (
     <>
-      <Navbar/>
-      {/* <Home/> */}
-      <Footer/>
+     <Navbar/>
+     <Home/>
+     <Footer/>
     </>
   )
 }
