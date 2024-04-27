@@ -2,10 +2,11 @@ require('dotenv').config();
 const express = require("express");
 const cors = require("cors");
 const connection = require("./database");
+const helmet = require("helmet");
+const morgan = require("morgan");
+const cookieParser = require("cookie-parser");
 const app = express();
-import helmet from "helmet"; 
-import morgan from "morgan"; 
-import cookieParser from "cookie-parser"; 
+
 
 // Database Connection
 connection();
@@ -20,7 +21,7 @@ app.use(morgan("common"));
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
-app.use("/api/entries", entryRoute); 
+app.use("/api/entries", require('./routes/entry')); 
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

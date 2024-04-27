@@ -71,7 +71,7 @@ router.post('/Login', async (req, res) => {
 
 // Delete User API
 
-router.post('/DeleteUser', async(req, res) => {
+router.delete('/DeleteUser', async(req, res) => {
   try { 
     await User.findByIdAndDelete(req.params.id); 
     res.status(200).json("User has been deleted."); 
