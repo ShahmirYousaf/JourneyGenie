@@ -11,7 +11,13 @@ const userSchema = new mongoose.Schema({
   country: { type: String, required: true },
   travelPreferences: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  password: { type: String, required: true }
+  password: { type: String, required: true },
+  entries: [ 
+    { 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Entry'
+    } 
+], 
 });
 
 userSchema.methods.generateAuthToken = function () {
