@@ -1,0 +1,77 @@
+/* AboutUs.css */
+
+/* Primary color */
+:root {
+    --Primarycolor: #FEBA3F;
+  }
+  
+  /* Secondary color */
+  :root {
+    --Secondarycolor: #1D3D6E;
+  }
+  body
+  {
+  background-image: url('../../Assets/bg1.jpg');
+  background-size: cover; /* Ensures the background image covers the entire background */
+  background-position: center; /* Centers the background image horizontally and vertically */
+  background-repeat: no-repeat; 
+  }
+  
+  /* Container for team member cards */
+  .about-us-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+   
+  }
+  
+  /* Container for the team cards row */
+  .team-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+  }
+  
+  /* Individual team member card */
+  .card {
+    background-color: var(--Primarycolor);
+    color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    width: calc(33.33% - 20px); /* Adjust width based on your design */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+  }
+  
+  .card-content {
+    text-align: center;
+  }
+  
+  .card-title {
+    margin: 0;
+    font-size: 1.5em;
+  }
+  
+  .card-description {
+    font-size: 1em;
+  }
+  
+  /* Our Aim card */
+  .aim-card {
+    background-color: var(--Secondarycolor);
+    color: white;
+    border-radius: 8px;
+    padding: 20px;
+    width: 80%;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
