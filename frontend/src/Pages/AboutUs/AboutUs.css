@@ -1,20 +1,11 @@
-/* AboutUs.css */
 
-/* Primary color */
-:root {
-    --Primarycolor: #FEBA3F;
-  }
   
-  /* Secondary color */
-  :root {
-    --Secondarycolor: #1D3D6E;
-  }
-  body
-  {
-  background-image: url('../../Assets/bg1.jpg');
-  background-size: cover; /* Ensures the background image covers the entire background */
-  background-position: center; /* Centers the background image horizontally and vertically */
-  background-repeat: no-repeat; 
+  body {
+    background-image: url('../../Assets/bg1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow-y: auto; /* Vertical scrollbar when content overflows */
   }
   
   /* Container for team member cards */
@@ -23,7 +14,7 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
-   
+    min-height: 100vh; /* Ensures the container takes at least the full viewport height */
   }
   
   /* Container for the team cards row */
@@ -40,8 +31,10 @@
     color: white;
     border-radius: 8px;
     padding: 20px;
-    margin: 10px;
+    margin: 20px;
+    margin-top: 50px;
     width: calc(33.33% - 20px); /* Adjust width based on your design */
+    height: 280px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   
@@ -71,7 +64,8 @@
     border-radius: 8px;
     padding: 20px;
     width: 80%;
-    margin-top: 20px;
+    height: 200px;
+    margin-top: 60px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   
