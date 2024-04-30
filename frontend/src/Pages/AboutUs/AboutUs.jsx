@@ -1,29 +1,32 @@
 import React from 'react';
 import './AboutUs.css'; // Import your CSS file (if needed)
 import bg1 from '../../Assets/bg1.jpg';
+import wa from '../../Assets/wa.jpg';
+import sh from '../../Assets/sh.jpg';
+import ma from '../../Assets/ma.jpg';
 
 const AboutUs = () => {
   return (
     <div className="about-us-container">
       <div className="team-cards">
         <div className="card">
-          <img src="path-to-image1.jpg" alt="Person 1" />
+          <img src={sh} alt="Person 1" />
           <div className="card-content">
-            <h2>John Morgan</h2>
+            <h1 className='names'>Shahmir Yousaf</h1>
             <p>Meet our team member 1. Lorem ipsum dolor sit amet.</p>
           </div>
         </div>
         <div className="card">
-          <img src="path-to-image2.jpg" alt="Person 2" />
+          <img src='../../Assets/wa.jpg' alt="Person 2" />
           <div className="card-content">
-            <h2>Ellie Anderson</h2>
+          <h1 className='names'>Wania Tariq</h1>
             <p>Meet our team member 2. Consectetur adipiscing elit.</p>
           </div>
         </div>
         <div className="card">
-          <img src="path-to-image3.jpg" alt="Person 3" />
+          <img src='../../Assets/ma.jpg'alt="Person 3" />
           <div className="card-content">
-            <h2>Nana Adebayo</h2>
+          <h1 className='names'>Mahrukh Imtiaz</h1>
             <p>Meet our team member 3. Sed do eiusmod tempor.</p>
           </div>
         </div>
