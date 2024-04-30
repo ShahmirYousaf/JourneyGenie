@@ -1,7 +1,7 @@
 
   
   body {
-    background-image: url('../../Assets/bg1.jpg');
+    background-image: url('../../Assets/d4.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -48,14 +48,21 @@
     flex-direction: column; 
     align-items: center; 
   }
-  
+  /* #aimid2
+  {
+    margin-top: -10px;
+    margin-left: 480px;
+  } */
+h1
+{color: black;
 
+}
   
   .card img {
     width: 110px;
     height: 100px; 
     object-fit: cover; 
-    border-radius: 5px; 
+    border-radius: 100px; 
     margin-bottom: 10px; 
   }
   
@@ -84,7 +91,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   
-  /* Existing CSS ... */
+
 
 /* Media query for screens smaller than 768px */
 @media (max-width: 768px) {
@@ -94,29 +101,79 @@
       margin: 10px 0; 
       margin-right: 8px;/* Reduce margin */
     }
-  
     .card img {
-      width: 80px; /* Smaller image size */
-      height: 80px;
-    }
+        width: 110px;
+        height: 100px; 
+        object-fit: cover; 
+        border-radius: 100px; 
+        margin-bottom: -7.8px; 
+      }
+
+    h2{
+        font-family: Arial, Helvetica, sans-serif;
+
+   }
+   #aimid
+   {
+     margin-top: 10px;
+   }
+    #aimid2
+   {
+     margin-top: -10px;
+     margin-left: 160px;
+   }
+  
+   .aim-card {
+    background-color: var(--Secondarycolor);
+    color: white;
+    border-radius: 8px;
+    padding-left: 20px;
+    padding: 10px;
+    width: 100%;
+    height: 200px;
+    margin-top: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+ 
   
     .card-title {
-      font-size: 1.2em; /* Smaller font size */
+      font-size: 0.2em; /* Smaller font size */
     }
   
     .card-description {
-      font-size: 0.9em;
+      font-size: 0.4em;
     }
   }
   
   /* Media query for screens smaller than 480px */
   @media (max-width: 480px) {
+
+    h2{
+        font-family: Arial, Helvetica, sans-serif;
+    
+        margin-top: 5px;
+   }
+  
+    .card {
+      width: 100%; /* Full width for smaller screens */
+      height: auto; /* Adjust height automatically */
+      margin: 10px 0; 
+      margin-right: 8px;/* Reduce margin */
+    }
+    .card img {
+        width: 110px;
+        height: 100px; 
+        object-fit: cover; 
+        border-radius: 5px; 
+        margin-bottom: -7.8px; 
+      }
     .card-title {
-      font-size: 1em; /* Even smaller font size */
+      font-size: 0.5em; /* Even smaller font size */
     }
   
     .card-description {
-      font-size: 0.8em;
+      font-size: 0.5em;
     }
   }
   
