@@ -2,7 +2,8 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css'
 import Navbar from './Components/Navbar/Navbar'
-import Home from './Components/Home/Home'
+import Home from './Pages/Home/Home'
+import Booking from './Pages/Booking/Booking'
 import Footer from './Components/Footer/Footer'
 import CurrencyConverter from './Pages/Currency/CurrencyConverter'
 import Signup from './Pages/Signup/Signup'
@@ -13,8 +14,9 @@ const App = () => {
   return (
     <>
      <Navbar/>
-     <Home/>
-     <Footer/>
+  
+     <Booking/>
+     
       {/* <Signup/> */}
       {/* <Login/> */}
       {/* <LanguageTranslation/> */}
