@@ -16,7 +16,10 @@
     padding: 20px;
     min-height: 100vh; /* Ensures the container takes at least the full viewport height */
   }
-  
+ h1{
+margin-top: 20px;
+    color: black;
+ }
   /* Container for the team cards row */
   .team-cards {
     display: flex;
