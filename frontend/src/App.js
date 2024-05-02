@@ -13,10 +13,11 @@ import AboutUs from './Pages/AboutUs/AboutUs'
 const App = () => {
   return (
     <>
-     {/* <Navbar/>
-     <Home/>
-     <Footer/> */}
+      <Navbar/>
+     {/* <Home/>
+     <Footer/> */} 
       <AboutUs/>
+     
       {/* <Signup/> */}
       {/* <Login/> */}
       {/* <LanguageTranslation/> */}
