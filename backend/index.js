@@ -21,7 +21,8 @@ app.use(morgan("common"));
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
-app.use("/api/entries", require('./routes/entry')); 
+app.use('/api/entries', require('./routes/entry')); 
+app.use('/api', require('./routes/stats'));
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

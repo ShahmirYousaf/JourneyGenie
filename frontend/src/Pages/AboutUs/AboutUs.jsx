@@ -1,12 +1,40 @@
-import React from 'react';
+import React,  { useEffect } from 'react';
+import axios from 'axios';
 import './AboutUs.css'; 
 import 'bootstrap/dist/css/bootstrap.css';
 import wania from '../../Assets/about-wania.png';
 import shahmir from '../../Assets/about-shahmir.png';
 import mahrukh from '../../Assets/about-mahrukh.png';
-import steps from '../../Assets/stepsBg.svg';
+import Chart from 'chart.js/auto';
+
 
 const AboutUs = () => {
+	useEffect(() => {
+		// Fetch user statistics from the backend
+		axios.get('http://localhost:8080/api/userStats')
+		  .then(response => {
+			const ctx = document.getElementById('myPieChart').getContext('2d');
+			new Chart(ctx, {
+			  type: 'pie',
+			  data: {
+				labels: ['Male', 'Female'],
+				datasets: [{
+				  label: 'Gender Distribution',
+				  data: [response.data.maleCount, response.data.femaleCount],
+				  backgroundColor: ['#1D3D6E', '#FEBA3F'],
+				  hoverBackgroundColor: ['#294878', '#fcc35b'],
+				}]
+			  },
+			  options: {
+				// Add options here if needed
+			  }
+			});
+		  })
+		  .catch(error => {
+			console.error('Error fetching user statistics:', error);
+		  });
+	  }, []);
+
   return (
 	<div className='Main-About-Container'>
 	<div className="container" style={{ marginTop: '100px' }}>
@@ -16,13 +44,13 @@ const AboutUs = () => {
 		  <h5 className="text-dark">Learn more about the project and its contributors.</h5>
 		</div>
 		<svg width="512" height="512" viewBox="0 0 512 512" fill="none" overflow="hidden" xmlns="http://www.w3.org/2000/svg">
-<use href="#cube" x="128" y="320" stroke-width="2"  opacity="0.3">
+<use href="#cube" x="128" y="320" strokeWidth="2"  opacity="0.3">
 	<animate attributeName="stroke" dur="6s" repeatCount="indefinite"
 			 values="#1D3D6E;#305E9B;#4387C1;#64A7D6;#9FCBF1;#FFFFFF;#1D3D6E"/>
 </use>
 
 <rect width="512" height="512" y="384" fill="url(#fade)"/>
-<use href="#cube" x="128" y="128" stroke-width="2">
+<use href="#cube" x="128" y="128" strokeWidth="2">
 	<animate attributeName="stroke" dur="6s" repeatCount="indefinite"
 			 values="#1D3D6E;#305E9B;#4387C1;#64A7D6;#9FCBF1;#FFFFFF;#1D3D6E"/>
 </use>
@@ -30,9 +58,9 @@ const AboutUs = () => {
 <defs>
 	
  	<g id="cube">
-		<use href="#cube_outline" stroke-linejoin="round" stroke-width="16" fill="url(#stars)"/>
-		<use href="#cube_base" stroke-width=".5"/>
-		<use href="#cube_outline" stroke-linejoin="round" stroke-width="6" stroke="#141417"/>
+		<use href="#cube_outline" strokeLinejoin="round" strokeWidth="16" fill="url(#stars)"/>
+		<use href="#cube_base" strokeWidth=".5"/>
+		<use href="#cube_outline" strokeLinejoin="round" strokeWidth="6" stroke="#141417"/>
 	</g>	
 
 	<g id="cube_outline">
@@ -85,12 +113,12 @@ const AboutUs = () => {
 		</path>
 	</g>
 	<linearGradient id="fade" gradientTransform="rotate(90)">
-    	<stop offset="0" stop-color="#14141700"/>
-    	<stop offset="0.25" stop-color="#141417ff"/>
+    	<stop offset="0" stopColor="#14141700"/>
+    	<stop offset="0.25" stopColor="#141417ff"/>
     </linearGradient>
 	<linearGradient id="sky" gradientTransform="rotate(90)">
-    	<stop offset="0.5" stop-color="#141417"/>
-    	<stop offset="1" stop-color="#40354a"/>
+    	<stop offset="0.5" stopColor="#141417"/>
+    	<stop offset="1" stopColor="#40354a"/>
     </linearGradient>
   
 	
@@ -137,7 +165,7 @@ const AboutUs = () => {
 	</circle>
 	<circle id="star04" r="1"/>
 
-	<path id="star10" stroke-width="2">
+	<path id="star10" strokeWidth="2">
 		<animate attributeName="d" dur="5s" repeatCount="indefinite" 
 			keyTimes="0;0.90;0.97;1"
 			keySplines="0 0.4 1 0.2; 0 0.4 1 0.2; 0 0.4 1 0.2"
@@ -146,7 +174,7 @@ const AboutUs = () => {
 			keyTimes="0;0.90;0.97;1"
 			values="1; 1; 0.6; 0"/>
 	</path>
-	<path id="star11" stroke-width="3">
+	<path id="star11" strokeWidth="3">
 		<animate attributeName="d" dur="6s" repeatCount="indefinite" delay="3s"
 			keyTimes="0;0.90;0.95;1"
 			keySplines="0 0.4 1 0.2; 0 0.4 1 0.2; 0 0.4 1 0.2"
@@ -212,6 +240,17 @@ const AboutUs = () => {
 	  bgColor="#fabc4b"
 	  description="Finding solace in the art of code refinement, there's an inherent allure in transforming chaos into elegance. Amidst the demanding and sometimes taxing nature of programming, each line of code serves as both a puzzle and a canvas for creative expression. The journey of programming is imbued with moments of joy and discovery, turning challenges into thrilling adventures."
 	/>
+
+<div className="container">
+	  <hr className="hr-dark" style={{ marginTop: '70px', marginBottom: '70px' }} />
+	</div>
+
+		<div className="container">
+		<h1 className="text-dark" style={{ fontWeight: 600, fontSize: '32px', textAlign: 'center' }}>User Statistics</h1>
+		<div style={{ maxWidth: '400px', margin: 'auto' }}>
+			<canvas id="myPieChart" width="400" height="400"></canvas>
+		</div>
+		</div>
 
   </div>
     
