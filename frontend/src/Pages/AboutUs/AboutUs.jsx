@@ -1,19 +1,21 @@
 import React from 'react';
 import './AboutUs.css'; 
-import wa1 from '../../Assets/wa1.jpg';
-import sh from '../../Assets/sh.jpg';
-import ma from '../../Assets/ma.jpg';
+import 'bootstrap/dist/css/bootstrap.css';
+import wania from '../../Assets/about-wania.png';
+import shahmir from '../../Assets/about-shahmir.png';
+import mahrukh from '../../Assets/about-mahrukh.png';
+import steps from '../../Assets/stepsBg.svg';
 
 const AboutUs = () => {
   return (
-  
-    <div className="about-us-container">
-      <div className='cube'>
-        <div className='contributors'>
-      <h1 id='top'>ABOUT US</h1>
-      <h2 id='top2'>Learn more about the contibutors</h2>
-      </div>
-      <svg width="512" height="512" viewBox="0 0 512 512" fill="none" overflow="hidden" xmlns="http://www.w3.org/2000/svg">
+	<div className='Main-About-Container'>
+	<div className="container" style={{ marginTop: '100px' }}>
+	  <div className="d-md-flex">
+		<div className="col my-auto">
+		  <h1 className="text-dark" style={{ fontWeight: 600, fontSize: '600%', textAlign: 'center'}}>About.</h1>
+		  <h5 className="text-dark">Learn more about the project and its contributors.</h5>
+		</div>
+		<svg width="512" height="512" viewBox="0 0 512 512" fill="none" overflow="hidden" xmlns="http://www.w3.org/2000/svg">
 <use href="#cube" x="128" y="320" stroke-width="2"  opacity="0.3">
 	<animate attributeName="stroke" dur="6s" repeatCount="indefinite"
 			 values="#1D3D6E;#305E9B;#4387C1;#64A7D6;#9FCBF1;#FFFFFF;#1D3D6E"/>
@@ -155,37 +157,81 @@ const AboutUs = () => {
 	</path>
 </defs>
 </svg>
-</div>
-      <div className="team-cards">
-        <div className="card">
-          <img src={sh} alt="Person 1" />
-          <div className="card-content">
-            <h2 className='names'>Shahmir Yousaf</h2>
-            <p> I BELIEVE  "Adventure awaits, let's conquer the globe together🌐."</p>
-          </div>
-        </div>
-        <div className="card">
-          <img src={wa1} alt="Person 2" />
-          <div className="card-content">
-          <h2 className='names'>Wania Tariq</h2>
-            <p> "We are on a mission to make your travel experience THE BEST SO FAR"</p>
-          </div>
-        </div>
-        <div className="card">
-          <img src={ma} alt="Person 3" />
-          <div className="card-content">
-          <h2 className='names'>Mahrukh Imtiaz</h2>
-            <p>"Plan your trips effortlessly and let the magic of JOURNEY GENIE enhance your travel experience🌐"</p>
-          </div>
-        </div>
-      </div>
-      <div className="aim-card">
-        <h1 id='aimid2'>Our Aim</h1>
-        <p id='aimid'>Welcome to Journey Genie. Our mission is to inspire, connect, and empower travelers to discover new destinations, create lifelong memories, and explore the world with confidence.
-        Join us today and embark on a world of possibilities 🌎✨ .......... LET'S EXPLORE TOGETHER !!!</p>
-      </div>
-    </div>
+	  </div>
+	</div>
+
+	<div className="container">
+	  <hr className="hr-dark" style={{ marginTop: '70px', marginBottom: '70px' }} />
+	</div>
+
+	<div className="container">
+	  <div className="d-md-flex">
+		<div className="col" align="center" style={{ marginBottom: '30px' }}>
+			<div class="custom-loader"></div>
+		</div>
+		<div className="col my-auto" align="center">
+		  <h1 className="text-dark">Meet the team:</h1>
+		  <p className="team-list-item" style={{ marginTop: '20px' }}>Shahmir Yousaf</p>
+		  <p className="team-list-item">Wania Tariq</p>
+		  <p className="team-list-item">Mahrukh Imtiaz</p>
+		</div>
+	  </div>
+	</div>
+
+	<div className="container">
+	  <hr className="hr-dark" style={{ marginTop: '70px', marginBottom: '70px' }} />
+	</div>
+
+
+	<TeamMember
+	  name="Shahmir Yousaf"
+	  imgSrc= {shahmir}
+	  bgColor="#4c78ba"
+	  description="I am driven by a relentless passion for innovation and a thirst for knowledge. Even amidst life's chaos, I find solace in diving into new projects and exploring diverse realms. Just as my journey with the JournieGenie Travel app unfolds, I am continuously inspired to push my boundaries, honing new skills, and delving into uncharted territories. This project serves as a testament to my resilience and adaptability, allowing me to make the most out of every opportunity and emerge stronger with each endeavor."
+	/>
+
+	<div className="container">
+	  <hr className="hr-dark" style={{ marginTop: '70px', marginBottom: '70px' }} />
+	</div>
+	
+
+	<TeamMember
+	  name="Wania Tariq"
+	  imgSrc={wania}
+	  bgColor="rgba(37, 36, 34, 0.1)"
+	  description="Nothing ignites my drive quite like transforming a chaotic code into something elegant and functional. Despite the demanding and often stressful nature of programming, I thrive on the challenge it presents. Pulling all-nighters may be a necessity at times, but finding the fun in the process is what truly fuels my passion. My relationship with programming is one of ambivalence; it pushes me to my limits while simultaneously inspiring me to explore new horizons and maximize my skills to their fullest potential."
+	/>
+
+	<div className="container">
+	  <hr className="hr-dark" style={{ marginTop: '70px', marginBottom: '70px' }} />
+	</div>
+
+	<TeamMember
+	  name="Mahrukh Imtiaz"
+	  imgSrc={mahrukh}
+	  bgColor="#fabc4b"
+	  description="Finding solace in the art of code refinement, there's an inherent allure in transforming chaos into elegance. Amidst the demanding and sometimes taxing nature of programming, each line of code serves as both a puzzle and a canvas for creative expression. The journey of programming is imbued with moments of joy and discovery, turning challenges into thrilling adventures."
+	/>
+
+  </div>
+    
   );
 };
+
+function TeamMember({ name, imgSrc, bgColor, description }) {
+	return (
+	  <div className="container" style={{ backgroundColor: bgColor, borderRadius: '14px' }}>
+		<div className="d-lg-flex">
+		  <div className="col my-auto">
+			<h1 className="text-dark" style={{ padding: '50px', fontWeight: 600 }}>{name}.</h1>
+			<p className="text-dark" style={{ padding: '20px 50px', textAlign: 'justify' }}>{description}</p>
+		  </div>
+		  <div className="col my-auto" align="center">
+			<img style={{ marginTop: '50px', marginBottom: '50px' }} src={imgSrc} alt={name} />
+		  </div>
+		</div>
+	  </div>
+	);
+  }
 
 export default AboutUs;
