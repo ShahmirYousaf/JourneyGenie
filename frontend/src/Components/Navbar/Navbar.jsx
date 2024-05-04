@@ -1,14 +1,17 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import './navbar.css'
 import logo from '../../Assets/logo.png'
 import {AiFillCloseCircle} from 'react-icons/ai'
 import {TbGridDots} from 'react-icons/tb'
+import { Link, useNavigate  } from 'react-router-dom';
+import { AuthContext } from '../../authContext'
 import Home from '../../Pages/Home/Home'
-import Login from '../../Pages/Login/Login'
-import Signup from '../../Pages/Signup/Signup'
-import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+
+    const navigate = useNavigate()
+
+    const { user, dispatch } = useContext(AuthContext) 
 
     const [active, setActive] = useState('navBar')
     // Function for toggling navBar
@@ -20,35 +23,52 @@ const Navbar = () => {
         setActive('navBar')
     }
 
+    const handleClick = async (e) => { 
+        e.preventDefault(); 
+        dispatch({ type: "LOGOUT" }); 
+        navigate("/") 
+    } 
+
   return (
     <section className='navBarSection'>
         <header className='header flex'>
             <div className='logoDiv'>
+                <Link to="/">
                 <a href='#' className="logo flex">
                     <img src={logo} alt="Error" className="icon" ></img>
                 </a>
+                </Link>
             </div>
 
             <div className={active}>
                 <ul className="navLists flex">
-                    <li className="navItem">
-                        <a href={<Home/>} className="navLink">Home</a>
-                    </li>
 
+                    <Link to="/Home">
                     <li className="navItem">
-                        <a href="#" className="navLink">Destinations</a>
+                        <a href="#" className="navLink">Home</a>
                     </li>
+                    </Link>
 
+                    <Link to="/">
+                    <li className="navItem">
+                        <a href="#" className="navLink">Recommendations</a>
+                    </li>
+                    </Link>
+
+                    <Link to={Home}>
                     <li className="navItem">
                         <a href="#" className="navLink">About</a>
                     </li>
+                    </Link>
 
+                    <Link to="/">
                     <li className="navItem">
-                        <a href={<Login/>} className="navLink">Login</a>
+                        <a href="#" className="navLink">Booking</a>
                     </li>
+                    </Link>
 
-                    <button className="btn">
-                        <a href={<Signup/>} > Signup </a>
+                    <button onClick={handleClick} className="btn">
+                        <a href="#" > Logout </a>
                     </button>
                 </ul>
                 <div onClick={removeNavBar} className="closeNavBar">

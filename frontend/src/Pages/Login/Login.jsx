@@ -1,7 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import './Login.css'
 import logo from '../../Assets/jg-logo.png'
+import { useNavigate, Link } from "react-router-dom"; 
 import axios from 'axios';
+import { AuthContext } from '../../authContext';
 
 const Login = () => {
 
@@ -9,6 +11,9 @@ const Login = () => {
     email: '',
     password: ''
 });
+
+  const { dispatch } = useContext(AuthContext); 
+  const navigate = useNavigate(); 
 
   const [errors, setErrors] = useState({});
 
@@ -26,6 +31,7 @@ const Login = () => {
 
 const handleSubmit = async (e) => {
   e.preventDefault();
+  dispatch({ type: "LOGIN_START" }); 
   
   if (!formData.email.trim()) {
       setErrors({
@@ -43,9 +49,18 @@ const handleSubmit = async (e) => {
   }
   try {
     const response = await axios.post('http://localhost:8080/api/auth/Login', formData);
-    console.log(response.data); // handle success, such as storing token in localStorage and redirecting user
+    console.log(response.data); 
+    dispatch({ 
+      type: "LOGIN_SUCCESS", 
+      payload: response.data.details 
+    }); 
+    navigate('/');
   } catch (error) {
     setErrors(error.response.data.error); // handle error
+    dispatch({ 
+      type: "LOGIN_FAILURE", 
+      payload: error.response.data 
+    }); 
   }
   
   console.log('Form submitted:', formData);

@@ -1,16 +1,37 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Routes} from 'react-router-dom';
 import './App.css'
-
-import AboutUs from './Pages/AboutUs/AboutUs'
+import { useContext } from "react"; 
+import { AuthContext } from "./authContext"; 
+import CreateReview from './Pages/CreateReview/CreateReview';
+import Signup from './Pages/Signup/Signup'
+import Home from './Pages/Home/Home'
+import Login from './Pages/Login/Login'
+import View from './Pages/View/View'
 
 const App = () => {
+
+  const { user } = useContext(AuthContext); 
+
+  const ProtectedRoute = ({ children }) => { 
+    if (!user) { 
+      return <Login/>; 
+    } else { 
+      return children; 
+    } 
+  }; 
+
   return (
-    <>
-      <AboutUs/>
-     
-    </>
-  )
+    <Router> 
+    <Routes> 
+      <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} /> 
+      <Route path="/login" element={<Login/>} /> 
+      <Route path="/register" element={<Signup/>} /> 
+      <Route path="/create" element={<ProtectedRoute><CreateReview/></ProtectedRoute>} /> 
+      <Route path="/view/:id" element={<ProtectedRoute><View/></ProtectedRoute>} /> 
+    </Routes> 
+  </Router> 
+  );
 }
 
 export default App;
