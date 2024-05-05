@@ -10,7 +10,7 @@ const Login = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
-});
+  });
 
   const { dispatch } = useContext(AuthContext); 
   const navigate = useNavigate(); 
@@ -50,6 +50,8 @@ const handleSubmit = async (e) => {
   try {
     const response = await axios.post('http://localhost:8080/api/auth/Login', formData);
     console.log(response.data); 
+    const sessionId = response.data.sessionId; // Extract sessionId from response
+    localStorage.setItem('sessionId', sessionId); 
     dispatch({ 
       type: "LOGIN_SUCCESS", 
       payload: response.data.details 

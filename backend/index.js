@@ -23,6 +23,7 @@ app.use(morgan("common"));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/entries', require('./routes/entry')); 
 app.use('/api', require('./routes/stats'));
+app.use('/api/chatbot', require('./routes/chatbot'));
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

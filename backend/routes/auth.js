@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const Joi = require('joi')
 const {User, validate} = require('../models/User');
+const { v4: uuidv4 } = require('uuid');
 
 // POST /api/auth/Signup
 router.post('/Signup', async (req, res) => {
@@ -60,8 +61,10 @@ router.post('/Login', async (req, res) => {
         return res.status(401).send({ message: "Invalid Email or Password"});
     }
 
+    const sessionId = uuidv4();
+
     const token = user.generateAuthToken();
-    res.status(200).send({ data: token, message: "Logged In Successfully"})
+    res.status(200).send({ data: token , sessionId, message: "Logged In Successfully"});
 
   } catch (error) {
     console.error(error);
