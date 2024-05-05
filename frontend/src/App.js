@@ -5,10 +5,11 @@ import { useContext } from "react";
 import { AuthContext } from "./authContext"; 
 // import CreateReview from './Pages/CreateReview/CreateReview';
 // import Signup from './Pages/Signup/Signup'
-// import Home from './Pages/Home/Home'
+//import Home from './Pages/Home/Home'
 // import Login from './Pages/Login/Login'
 // import View from './Pages/View/View'
-import ChatBot from './Pages/ChatBot/ChatBot';
+//import ChatBot from './Pages/ChatBot/ChatBot';
+import CreateReview from './Pages/CreateReview/CreateReview'
 
 const App = () => {
 
@@ -34,7 +35,13 @@ const App = () => {
   // </Router> 
   <>
 
-  <ChatBot/>
+  {/* <ChatBot/> */}
+  <Router>
+      <Routes>
+      
+        <Route path="/" element={<CreateReview />} />
+      </Routes>
+    </Router>
 
   </>
   );

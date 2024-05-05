@@ -65,6 +65,8 @@ const CreateReview = () => {
   return (
     <div className='create'>  
             <div className="createContainer"> 
+
+            <h1 className='CreateReviewHeading'>Create Review</h1>
   
                 <div className="picsContainer"> 
   
@@ -160,8 +162,8 @@ const CreateReview = () => {
                     <textarea 
                         name='entry'
                         id='text'
-                        cols="150"
-                        rows='25'
+                        cols="100"
+                        rows='12'
                         onChange={handleChange} 
                         autoFocus 
                     ></textarea> 
