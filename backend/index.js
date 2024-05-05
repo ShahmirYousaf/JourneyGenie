@@ -7,12 +7,6 @@ const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const connection = require("./database");
-const helmet = require("helmet");
-const morgan = require("morgan");
-const cookieParser = require("cookie-parser");
-const helmet = require("helmet");
-const morgan = require("morgan");
-const cookieParser = require("cookie-parser");
 const app = express();
 
 
@@ -22,17 +16,10 @@ connection();
 
 // Middleware
 app.use(cookieParser()) 
-app.use(cookieParser()) 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(helmet()); 
-
-app.use(morgan("common")); 
-app.use(helmet()); 
-
-app.use(morgan("common")); 
-app.use(helmet());
 app.use(morgan("dev"));
 app.use(cookieParser());
 
@@ -41,11 +28,6 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/entries', require('./routes/entry')); 
 app.use('/api', require('./routes/stats'));
 app.use('/api/chatbot', require('./routes/chatbot'));
-
-app.use('/api/entries', require('./routes/entry')); 
-app.use('/api', require('./routes/stats'));
-app.use('/api/chatbot', require('./routes/chatbot'));
-
 app.use('/api/booking', require('./routes/Booking'));
 // Add other routes as needed
 
