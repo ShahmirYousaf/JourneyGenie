@@ -1,120 +1,145 @@
-
 .booking-container {
-    width: 100%;
-    margin: 0 auto;
-  }
+  width: 100%;
+  margin: 0 auto;
   
-  .hero-section {
-    /* margin-top: 20px; */
-    padding-top: 20px;
-    position: relative;
-    overflow: hidden;
-    color: white;
-    height: 100vh; /* Adjust the height of the hero section (100% of viewport height) */
-    display: flex;
-    justify-content: left;
-  
-  }
-  
-  .background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-  }
-  
-  .background-image img {
-    padding-top: 95px;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* opacity: 0.8; */
-  }
-  
-  .text-content {
-    margin-top: 250px;
-    margin-left: 20px;
-    position: relative;
-    z-index: 1;
-    text-align: left;
-    padding-left: 20px;
-    opacity: 0;
-    animation: slideIn 1s ease forwards; /* Apply slide-in animation */
-  }
-  
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateX(-50px); /* Slide in from left */
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0); /* Slide to original position */
-    }
-  }
-  
-  .text-content h1 {
-    font-size: 2.2rem;
-    margin-bottom: 20px;
+}
 
+.hero-section {
+  padding-top: 20px;
+  position: relative;
+  overflow: hidden;
+  color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: left;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.background-image img {
+  padding-top: 95px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text-content {
+  margin-top: 250px;
+  margin-left: 20px;
+  position: relative;
+  z-index: 1;
+  text-align: left;
+  padding-left: 20px;
+  opacity: 0;
+  animation: slideIn 1s ease forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
   }
-  
-  
-  .explore-button {
-    padding: 12px 24px;
-    font-size: 1.0rem;
-    border-radius: 0.8rem;
-    border: none;
-    background-color: #fcb42f;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
+}
+
+.text-content h1 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.explore-button {
+  padding: 12px 24px;
+  font-size: 1.0rem;
+  border-radius: 0.8rem;
+  border: none;
+  background-color: #fcb42f;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.explore-button:hover {
+  background-color: #faa60b;
+  transform: scale(1.1);
+}
+
+.explore-button:focus {
+  outline: none;
+}
+
+.tour-packages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center items horizontally */
   
-  .explore-button:hover {
-    background-color: #faa60b;
-    transform: scale(1.1); /* Scale button slightly on hover for interaction effect */
-  }
-  
-  .explore-button:focus {
-    outline: none; /* Remove default focus outline */
-  }
-  
-  
-  
-  .tour-packages {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .tour-package {
-    width: 30%;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    overflow: hidden;
-  }
-  
-  .tour-package img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  .package-details {
-    padding: 10px;
-  }
-  
-  .package-details h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-  
-  .package-details p {
-    font-size: 1rem;
-    margin-bottom: 5px;
-  }
-  
+}
+
+.tour-package {
+  width: 80%;
+  margin-top: 90px;
+  margin-bottom: 50px;
+  display: flex;
+  border-color: rgb(233, 241, 248);
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow */
+  transition: transform 0.3s ease; /* Add transition for pop-up effect */
+}
+.tour-package:hover {
+  transform: translateY(-5px); /* Move package upward on hover */
+}
+
+.package-details {
+  flex: 0.7;
+  padding: 20px;
+}
+
+.tour-image-container {
+  flex: 0.3;
+}
+
+.tour-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 10px 10px 0;
+}
+
+.package-details h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.package-details p {
+  font-size: 1.0rem;
+  margin-bottom: 8px;
+}
+
+.book-now-button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.book-now-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}

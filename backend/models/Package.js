@@ -2,19 +2,33 @@ const mongoose = require('mongoose');
 
 // Define Package Schema
 const packageSchema = new mongoose.Schema({
-  country: {
+  Country: {
     type: String,
     required: true
   },
-  startingPrice: {
-    type: Number,
+  Price: {
+    type: Number, // Use Number type for price
     required: true
   },
-  startDate: {
+  Date: {
     type: Date,
     required: true
   },
-  // Add more fields as needed (e.g., tourName, description, imageUrl, etc.)
+  Duration: {
+    type: String,
+    required: true
+    
+  },
+  Description: {
+    type: String,
+    required: true
+  },
+  ImageUrl: {
+    type: String,
+    required: true
+  }
+}, {
+  collection: 'TourPackages' // Specify custom collection name
 });
 
 // Create Package Model based on Package Schema

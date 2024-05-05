@@ -9,17 +9,24 @@ import CurrencyConverter from './Pages/Currency/CurrencyConverter'
 import Signup from './Pages/Signup/Signup'
 import Login from './Pages/Login/Login'
 import LanguageTranslation from './Pages/LanguageTranslation/LanguageTranslation'
-
+import CheckoutForm from './Pages/Checkout/Checkoutform';
+import WeatherForecast from './Pages/WeatherForecast/WeatherForecast';
 const App = () => {
   return (
     <>
-     <Navbar/>
-  
-     <Booking/>
-     
-      {/* <Signup/> */}
-      {/* <Login/> */}
-      {/* <LanguageTranslation/> */}
+     {/* <Navbar/>
+     <Home/>
+     <Footer/> */}
+     {/* <Login/> */}
+     {/* <Signup/> */}
+     {/* <Navbar/> */}
+
+     {/* <CurrencyConverter/> */}
+     {/* <LanguageTranslation/> */}
+    {/* <BookingForm/> */}
+    {/* <Booking/> */}
+    <WeatherForecast/>
+    {/* <CheckoutForm/> */}
     </>
   )
 }

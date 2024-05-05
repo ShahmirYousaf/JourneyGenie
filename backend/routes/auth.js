@@ -32,7 +32,8 @@ router.post('/Signup', async (req, res) => {
         country,
         travelPreferences,
         email,
-        password: hashedPassword
+        password: hashedPassword,
+        entries: [] 
       });
   
       await newUser.save();
@@ -66,6 +67,17 @@ router.post('/Login', async (req, res) => {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
+});
+
+// Delete User API
+
+router.delete('/DeleteUser', async(req, res) => {
+  try { 
+    await User.findByIdAndDelete(req.params.id); 
+    res.status(200).json("User has been deleted."); 
+} catch (err) { 
+    next(err); 
+} 
 });
 
 const ValidateLogin = (data) => {

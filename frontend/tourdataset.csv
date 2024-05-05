@@ -1,51 +1,7 @@
-Country,Price,Date
-Belgium,309,09-01-2024
-British Indian Ocean Territory,187,08-01-2024
-"Taiwan, Province of China",198,09-01-2024
-French Southern Territories,297,08-01-2024
-Algeria,429,08-01-2024
-New Caledonia,163,07-01-2024
-Saint Vincent and the Grenadines,203,09-01-2024
-Suriname,389,08-01-2024
-Liberia,183,09-01-2024
-Saint Lucia,184,09-01-2024
-France,235,09-01-2024
-Dominica,165,07-01-2024
-Sudan,435,09-01-2024
-Papua New Guinea,249,09-01-2024
-Northern Mariana Islands,157,08-01-2024
-Saint Kitts and Nevis,200,07-01-2024
-Haiti,332,07-01-2024
-Solomon Islands,317,08-01-2024
-Reunion,493,08-01-2024
-Eritrea,177,08-01-2024
-Madagascar,332,09-01-2024
-Philippines,201,07-01-2024
-Angola,150,08-01-2024
-Cameroon,430,09-01-2024
-Oman,425,07-01-2024
-Azerbaijan,365,07-01-2024
-Uganda,258,09-01-2024
-Saint Helena,159,08-01-2024
-Netherlands Antilles,322,09-01-2024
-Cuba,476,07-01-2024
-Turkmenistan,413,09-01-2024
-Niue,428,08-01-2024
-Bangladesh,314,07-01-2024
-United States Minor Outlying Islands,208,09-01-2024
-Mozambique,377,09-01-2024
-Sri Lanka,176,07-01-2024
-Luxembourg,406,08-01-2024
-Tajikistan,498,08-01-2024
-Russian Federation,334,07-01-2024
-Palau,176,09-01-2024
-Ghana,339,07-01-2024
-Turkmenistan,365,08-01-2024
-Croatia,385,09-01-2024
-Falkland Islands (Malvinas),270,07-01-2024
-Bolivia,360,09-01-2024
-Azerbaijan,296,07-01-2024
-Czech Republic,176,08-01-2024
-Macao,211,09-01-2024
-Afghanistan,197,09-01-2024
-Timor-Leste,208,08-01-2024
+_id,Country,Price,Date,Duration,Description,ImageUrl
+663241db4cc98671eadee199,Switzerland,3000.00,9/1/2024,7 days,"Immerse yourself in Switzerland's Alpine beauty. This tour includes flights, one meal daily, transportation, and hotel accommodations. Explore Interlaken, Lucerne, and Zermatt, enjoying activities like skiing and scenic hikes.",switz.jpg
+663241db4cc98671eadee19a,Italy,2500.00,7/1/2024,7 days,"Italy's cultural treasures. This tour covers flights, one daily meal, transport, and hotel stays. Visit Rome's ancient ruins, admire Florence's art, and experience Venice's canals. Enjoy authentic Italian cuisine.",italy.jpg
+663241db4cc98671eadee19b,Korea,1800.00,9/1/2024,7 days,"Discover South Korea on a comprehensive tour package with flights, accommodations, meals, and transportation included. Explore Seoul's vibrant streets, visit historic landmarks, and indulge in delicious Korean cuisine. Experience the natural beauty of Jeju Island and Seoraksan National Park.",korea.jpg
+663241db4cc98671eadee19c,Egypt,2000.00,8/1/2024,9 days,"Uncover Egypt's ancient wonders. This tour includes flights, one meal daily, transport, and hotel stays. See the Pyramids of Giza, cruise the Nile, and visit Luxor's temples. Discover Egypt's history and vibrant culture.",egypt.jpg
+663241db4cc98671eadee19d,Africa,3000.00,7/1/2024,7 days,"Experience an incredible safari adventure in Africa. This all-inclusive tour covers flights, daily meals, transport, and lodging. Explore Kenya's Maasai Mara or Tanzania's Serengeti National Park, encountering lions, elephants, and giraffes in the wild.",africa.jpg
+663241db4cc98671eadee19e,Alaska,2500.00,9/1/2024,7 days,"Encounter Alaska's wilderness. This tour includes flights, one daily meal, transport, and lodging. Cruise the Inside Passage, witness glaciers in Glacier Bay, and spot wildlife in Denali. Experience outdoor activities in a pristine setting.",alaska.jpg
