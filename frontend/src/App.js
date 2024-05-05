@@ -1,34 +1,50 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Routes} from 'react-router-dom';
 import './App.css'
-import Navbar from './Components/Navbar/Navbar'
-import Home from './Pages/Home/Home'
-import Booking from './Pages/Booking/Booking'
-import Footer from './Components/Footer/Footer'
-import CurrencyConverter from './Pages/Currency/CurrencyConverter'
-import Signup from './Pages/Signup/Signup'
-import Login from './Pages/Login/Login'
-import LanguageTranslation from './Pages/LanguageTranslation/LanguageTranslation'
-import CheckoutForm from './Pages/Checkout/Checkoutform';
-import WeatherForecast from './Pages/WeatherForecast/WeatherForecast';
-const App = () => {
-  return (
-    <>
-     {/* <Navbar/>
-     <Home/>
-     <Footer/> */}
-     {/* <Login/> */}
-     {/* <Signup/> */}
-     {/* <Navbar/> */}
+import { useContext } from "react"; 
+import { AuthContext } from "./authContext"; 
+// import CreateReview from './Pages/CreateReview/CreateReview';
+// import Signup from './Pages/Signup/Signup'
+//import Home from './Pages/Home/Home'
+// import Login from './Pages/Login/Login'
+// import View from './Pages/View/View'
+//import ChatBot from './Pages/ChatBot/ChatBot';
+import CreateReview from './Pages/CreateReview/CreateReview'
 
-     {/* <CurrencyConverter/> */}
-     {/* <LanguageTranslation/> */}
-    {/* <BookingForm/> */}
-    {/* <Booking/> */}
-    <WeatherForecast/>
-    {/* <CheckoutForm/> */}
-    </>
-  )
+const App = () => {
+
+  // const { user } = useContext(AuthContext); 
+
+  // const ProtectedRoute = ({ children }) => { 
+  //   if (!user) { 
+  //     return <Login/>; 
+  //   } else { 
+  //     return children; 
+  //   } 
+  // }; 
+
+  return (
+  //   <Router> 
+  //   <Routes> 
+  //     <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} /> 
+  //     <Route path="/login" element={<Login/>} /> 
+  //     <Route path="/register" element={<Signup/>} /> 
+  //     <Route path="/create" element={<ProtectedRoute><CreateReview/></ProtectedRoute>} /> 
+  //     <Route path="/view/:id" element={<ProtectedRoute><View/></ProtectedRoute>} /> 
+  //   </Routes> 
+  // </Router> 
+  <>
+
+  {/* <ChatBot/> */}
+  <Router>
+      <Routes>
+      
+        <Route path="/" element={<CreateReview />} />
+      </Routes>
+    </Router>
+
+  </>
+  );
 }
 
 export default App;
