@@ -10,7 +10,11 @@ const connection = require("./database");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
+const helmet = require("helmet");
+const morgan = require("morgan");
+const cookieParser = require("cookie-parser");
 const app = express();
+
 
 
 // Database Connection
@@ -18,9 +22,13 @@ connection();
 
 // Middleware
 app.use(cookieParser()) 
+app.use(cookieParser()) 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use(helmet()); 
+
+app.use(morgan("common")); 
 app.use(helmet()); 
 
 app.use(morgan("common")); 
@@ -30,6 +38,10 @@ app.use(cookieParser());
 
 // Define and use existing routes (e.g., auth, booking, etc.)
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/entries', require('./routes/entry')); 
+app.use('/api', require('./routes/stats'));
+app.use('/api/chatbot', require('./routes/chatbot'));
+
 app.use('/api/entries', require('./routes/entry')); 
 app.use('/api', require('./routes/stats'));
 app.use('/api/chatbot', require('./routes/chatbot'));
