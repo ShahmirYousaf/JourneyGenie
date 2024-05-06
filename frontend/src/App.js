@@ -10,6 +10,7 @@ import { AuthContext } from "./authContext";
 // import View from './Pages/View/View'
 //import ChatBot from './Pages/ChatBot/ChatBot';
 import CreateReview from './Pages/CreateReview/CreateReview'
+import Recommendation from './Pages/Recommendation/Recommendation';
 
 const App = () => {
 
@@ -35,13 +36,7 @@ const App = () => {
   // </Router> 
   <>
 
-  {/* <ChatBot/> */}
-  <Router>
-      <Routes>
-      
-        <Route path="/" element={<CreateReview />} />
-      </Routes>
-    </Router>
+  <Recommendation/>
 
   </>
   );
