@@ -10,7 +10,6 @@ const connection = require("./database");
 const app = express();
 
 
-
 // Database Connection
 connection();
 
