@@ -73,7 +73,7 @@
   }
   
   .getStartedButton:hover {
-    background-color: #FFA500;
+    background-color: #ffcb69;
   }
 
 
@@ -122,6 +122,7 @@
     align-items: center;
     background-color: rgba(red, green, rgb(137, 93, 218), alpha);
   }
+  
   
   .icon-container h3 {
     margin-top: 15px; /* Adjust margin top as needed */

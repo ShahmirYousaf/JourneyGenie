@@ -19,7 +19,8 @@
     margin-bottom: 30px;
 }
 
-input, select, button {
+
+.Rec-Own-Style{
     margin: 10px 0;
     padding: 10px;
     border: 1px solid #ccc;
@@ -28,9 +29,14 @@ input, select, button {
 }
 
 .RecommendationButton {
+    margin: 10px 0;
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
     background-color: #1D3D6E;
     color: #fff;
     cursor: pointer;
+    border-radius: 6px;
     transition: background-color 0.3s ease;
 }
 

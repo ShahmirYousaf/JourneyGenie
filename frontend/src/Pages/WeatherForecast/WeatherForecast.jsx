@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
 import './WeatherForecast.css'
-// import html2canvas from 'html2canvas';
-// import jsPDF from 'jspdf';
 
 const WeatherForecast = () => {
     const [currentCity, setCurrentCity] = useState('Lahore');
     const [weatherData, setWeatherData] = useState(null);
 
-    // const [contentReady, setContentReady] = useState(false);
-
-    // const forecastRef = useRef(null);
-
+    
     const getWeatherData = async () => {
         if (!currentCity)
         {
@@ -31,13 +26,6 @@ const WeatherForecast = () => {
     useEffect(() => {
         getWeatherData();
     }, [currentCity]);
-
-    // useEffect(() => {
-    //   // Check if the content is ready for PDF generation
-    //   if (weatherData && weatherData.forecast && weatherData.forecast.forecastday.length > 0) {
-    //     setContentReady(true);
-    //   }
-    // }, [weatherData]);
 
     const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const monthName = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
@@ -122,40 +110,6 @@ const displayNextDaysWeather = () => {
   const handleOnChange = (e) => {
     setCurrentCity(e.target.value);
   };
-
-  // // Function to generate PDF of weather forecast
-  // const generatePDF = () => {
-  //   // Check if the content is ready for PDF generation
-  //   if (!contentReady) {
-  //     return;
-  //   }
-
-  //   // Get the HTML content to be converted to PDF
-  //   const element = forecastRef.current;
-
-  //   // Create a new jsPDF instance
-  //   const pdf = new jsPDF('p', 'mm', 'a4');
-  //   const imgWidth = 208; // Adjust as needed
-  //   let imgHeight = 0;
-  
-
-  //   // Create canvas from HTML content
-  //   html2canvas(element).then(canvas => {
-  //     const imgData = canvas.toDataURL('image/png');
-  //     imgHeight = (canvas.height * imgWidth) / canvas.width;
-  
-  //     // Add image to PDF
-  //     pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-  
-  //     // Extract text content
-  //     const textContent = element.innerText;
-  
-  //     // Add text to PDF
-  //     pdf.setFontSize(10);
-  //     pdf.text(5, imgHeight + 15, textContent);
-  //     pdf.save('weather_forecast.pdf');
-  //   });
-  // };
   
 
   return (
@@ -175,7 +129,6 @@ const displayNextDaysWeather = () => {
           {displayTodayWeather()}
           {displayNextDaysWeather()}
         </div>
-        {/* <button className="btn btn-primary mt-3" onClick={generatePDF}>Generate PDF</button> */}
       </div>
     </section>
   );

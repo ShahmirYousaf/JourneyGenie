@@ -4,7 +4,7 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const Joi = require('joi')
-const {User, validate} = require('../models/User');
+const {User, validate, ValidateLogin} = require('../models/User');
 const { v4: uuidv4 } = require('uuid');
 
 // POST /api/auth/Signup
@@ -49,9 +49,11 @@ router.post('/Signup', async (req, res) => {
 // POST /api/auth/Login
 router.post('/Login', async (req, res) => {
   try {
-    const {error} = ValidateLogin(req.body);
-    if (error)
-        return res.status(400).send({message : error.details[0].message});
+    // const {error} = ValidateLogin(req.body);
+    // if (error)
+    // return res.status(400).send({message : error.details[0].message});
+
+    
     const user = await User.findOne({ email: req.body.email });
     if (!user) {
         return res.status(401).send({ message: "Invalid Email or Password"});
@@ -82,14 +84,5 @@ router.delete('/DeleteUser', async(req, res) => {
     next(err); 
 } 
 });
-
-const ValidateLogin = (data) => {
-    const schema = Joi.object({
-        email: Joi.string().email().required().label("Email"),
-        password: Joi.string().required().label("Password")
-    });
-
-    return schema.ValidateLogin(data);
-}
 
 module.exports = router;

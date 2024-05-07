@@ -2,7 +2,7 @@ import React, { useState }  from 'react'
 import './Signup.css'
 import logo from '../../Assets/jg-logo.png';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , Link } from 'react-router-dom';
 
 const Signup = () => {
 
@@ -43,7 +43,7 @@ const Signup = () => {
         try {
           const response = await axios.post('http://localhost:8080/api/auth/Signup', formData);
           console.log(response.data); // handle success
-          navigate("../Login/Login")
+          navigate("/Login")
         } catch (error) {
           console.error(error.response.data); // handle error
         }
@@ -215,7 +215,14 @@ const Signup = () => {
                 {errors.password && <div className="error">{errors.password}</div>}
               </div>
             </div>
-            <button className='button' type="submit">Sign Up</button>
+            <div className="Login-link">
+                  Already have an account? <Link to="/Login">Log In</Link>
+                  
+            </div>
+            <div className="Signup-button">
+              <button className='button' type="submit">Sign Up</button>
+           </div>
+            
           </form>
         </div>
         <div className="shape"></div>

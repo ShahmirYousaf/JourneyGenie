@@ -3,7 +3,23 @@
   height: 100vh;
   position: relative;
   background-color: #080710;
-  overflow: hidden; /* Ensures child shapes are clipped to parent */
+  overflow: hidden;
+}
+
+.signup-link {
+  margin-top: 20px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.signup-link a {
+  color: #FEBA3F;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.signup-link a:hover {
+  color: #3575b9;
 }
 
 .shape {

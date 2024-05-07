@@ -70,7 +70,7 @@
   gap: 1rem;
   flex-direction: column;
 }
-.footer .secContent .contactDiv .inputDiv input {
+.footer .secContent .contactDiv .inputDiv .SubscribeInput {
   width: 100%;
   padding: 0.5rem 0.6rem;
   border-radius: 3rem;
@@ -79,11 +79,11 @@
   background: transparent;
   color: var(--whiteColor);
 }
-.footer .secContent .contactDiv .inputDiv input::-moz-placeholder {
+.footer .secContent .contactDiv .inputDiv .SubscribeInput::-moz-placeholder {
   color: var(--whiteColor);
   opacity: 0.6;
 }
-.footer .secContent .contactDiv .inputDiv input::placeholder {
+.footer .secContent .contactDiv .inputDiv .SubscribeInput::placeholder {
   color: var(--whiteColor);
   opacity: 0.6;
 }
@@ -218,6 +218,10 @@
   .footer {
     padding: 5rem 0;
   }
+  .footer .secContent {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
   .footer .secContent .footerCard {
     flex-direction: row;
   }
@@ -227,6 +231,10 @@
   }
 }
 @media screen and (min-width: 1024px) {
+  .footer .secContent {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
   .footer .secContent .footerCard {
     padding: 3rem 1rem;
   }

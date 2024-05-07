@@ -178,4 +178,4 @@ const CreateReview = () => {
   )
 }
 
-export default CreateReview
+export default CreateReview;

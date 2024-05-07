@@ -73,7 +73,7 @@
                 gap: 1rem;
                 flex-direction: column;
 
-                input{
+                .SubscribeInput{
                     width: 100%;
                     padding: .5rem .6rem;
                     border-radius: 3rem;
@@ -217,6 +217,7 @@
 @media screen and (min-width: 500px) {
     .footer{
         .secContent{
+
             .footerCard{
                 .footerLinks{
                     grid-template-columns: repeat(3, 1fr);
@@ -270,6 +271,8 @@
     .footer{
         padding: 5rem 0 ;
         .secContent{
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
           .footerCard{
             flex-direction: row;
 
@@ -285,6 +288,8 @@
 @media screen and (min-width: 1024px) {
     .footer{
         .secContent{
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
             .footerCard{
                 padding: 3rem 1rem;
 

@@ -25,49 +25,51 @@ const Navbar = () => {
 
     const handleClick = async (e) => { 
         e.preventDefault(); 
+        localStorage.removeItem("token");
+        localStorage.removeItem("sessionId");
         dispatch({ type: "LOGOUT" }); 
-        navigate("/") 
+        navigate("/Login") 
     } 
 
   return (
     <section className='navBarSection'>
-        <header className='header flex'>
+        <header className='headerNavbar flex'>
             <div className='logoDiv'>
-                <Link to="/">
-                <a href='#' className="logo flex">
+                <Link className="logo flex" to="/">
+                
                     <img src={logo} alt="Error" className="icon" ></img>
-                </a>
+                
                 </Link>
             </div>
 
             <div className={active}>
-                <ul className="navLists flex">
+                <ul className="navLists-JG flex">
 
-                    <Link to="/Home">
-                    <li className="navItem">
-                        <a href="#" className="navLink">Home</a>
+                    <Link  to="/">
+                    <li className="navItem-JG">
+                        <p className="NavBarLinks-JG">Home</p>
+                    </li>
+                    </Link>
+
+                    <Link to="/Recommendation">
+                    <li className="navItem-JG">
+                        <p className="NavBarLinks-JG">Recommendations</p>
+                    </li>
+                    </Link>
+
+                    <Link to="/Booking">
+                    <li className="navItem-JG">
+                        <p className="NavBarLinks-JG">Booking</p>
                     </li>
                     </Link>
 
                     <Link to="/">
-                    <li className="navItem">
-                        <a href="#" className="navLink">Recommendations</a>
+                    <li className="navItem-JG">
+                        <p className="NavBarLinks-JG">About</p>
                     </li>
                     </Link>
 
-                    <Link to={Home}>
-                    <li className="navItem">
-                        <a href="#" className="navLink">About</a>
-                    </li>
-                    </Link>
-
-                    <Link to="/">
-                    <li className="navItem">
-                        <a href="#" className="navLink">Booking</a>
-                    </li>
-                    </Link>
-
-                    <button onClick={handleClick} className="btn">
+                    <button onClick={handleClick} className="btn-navBar-JG">
                         <a href="#" > Logout </a>
                     </button>
                 </ul>

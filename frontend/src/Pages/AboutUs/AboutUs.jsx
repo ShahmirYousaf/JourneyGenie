@@ -266,7 +266,7 @@ function TeamMember({ name, imgSrc, bgColor, description }) {
 			<p className="text-dark" style={{ padding: '20px 50px', textAlign: 'justify' }}>{description}</p>
 		  </div>
 		  <div className="col my-auto" align="center">
-			<img style={{ marginTop: '50px', marginBottom: '50px' }} src={imgSrc} alt={name} />
+			<img className='About-Image' style={{ marginTop: '50px', marginBottom: '50px' }} src={imgSrc} alt={name} />
 		  </div>
 		</div>
 	  </div>

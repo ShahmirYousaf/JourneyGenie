@@ -103,7 +103,7 @@ const Translate = () => {
   return (
     <div className="language-translation-container">
     <h1 className="heading">TRANSLATE YOUR IDEAS</h1>
-      <div className="container">
+      <div className="containerLanguage">
         <div className="wrapper">
           <div className="text-input">
             <textarea

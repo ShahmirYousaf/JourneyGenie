@@ -6,7 +6,11 @@
   --textColor: hsl(240, 3%, 23%);
 }
 
-.header {
+Link {
+  text-decoration: none;
+}
+
+.headerNavbar {
   position: fixed;
   display: flex;
   align-items: center;
@@ -17,7 +21,7 @@
   z-index: 1000;
   box-shadow: 0 2px 4px rgba(2, 15, 29, 0.645);
 }
-.header .logo {
+.headerNavbar .logo {
   height: auto;
   width: 180px;
   color: var(--blackColor);
@@ -25,13 +29,13 @@
   align-items: center;
   justify-content: center;
 }
-.header .logo .icon {
+.headerNavbar .logo .icon {
   font-size: 25px;
   color: var(--Primarycolor);
   transform: translateY(5px);
 }
 @media screen and (max-width: 768px) {
-  .header .navBar {
+  .headerNavbar .navBar {
     position: absolute;
     background: var(--blackColor);
     height: -moz-max-content;
@@ -46,49 +50,57 @@
     box-shadow: 0 2px 4px rgba(2, 15, 29, 0.904);
     transition: 0.2s ease-in-out;
   }
-  .header .navBar .navLists {
+  .headerNavbar .navBar .navLists-JG {
     flex-direction: column;
     justify-content: center;
     width: 100%;
     margin: auto;
     padding: 0.5rem 0;
   }
-  .header .navBar .navLists .navItem {
+  .headerNavbar .navBar .navLists-JG .navItem-JG {
     padding: 0.5rem 0;
   }
-  .header .navBar .navLists .navItem .navLink {
+  .headerNavbar .navBar .navLists-JG .navItem-JG .NavBarLinks-JG {
     color: var(--whiteColor);
     font-size: 0.9rem;
     font-weight: 600;
   }
-  .header .navBar .navLists .navItem .navLink:hover {
+  .headerNavbar .navBar .navLists-JG .navItem-JG .NavBarLinks-JG:hover {
     color: #FEBA3F;
   }
-  .header .navBar .navLists .btn {
+  .headerNavbar .navBar .navLists-JG .btn-navBar-JG {
     margin-top: 1rem;
+    padding: 0.6rem 1.5rem;
+    background: var(--Primarycolor);
+    border-radius: 10px;
+    border: 1px solid var(--Primarycolor);
   }
-  .header .navBar .navLists .btn a {
+  .headerNavbar .navBar .navLists-JG .btn-navBar-JG a {
+    text-decoration: none;
     font-weight: 600;
     color: var(--whiteColor);
   }
-  .header .navBar .closeNavBar {
+  .headerNavbar .navBar .navLists-JG .btn-navBar-JG:hover {
+    background: var(--Secondarycolor);
+  }
+  .headerNavbar .navBar .closeNavBar {
     position: absolute;
     top: 1rem;
     right: 1.5rem;
     color: var(--Secondarycolor);
   }
-  .header .navBar .closeNavBar:hover {
+  .headerNavbar .navBar .closeNavBar:hover {
     color: var(--Primarycolor);
   }
-  .header .activeNavbar {
+  .headerNavbar .activeNavbar {
     top: 6rem;
   }
 }
-.header .toggleNavBar .icon {
+.headerNavbar .toggleNavBar .icon {
   font-size: 25px;
   color: var(--Secondarycolor);
 }
-.header .toggleNavBar:hover.icon {
+.headerNavbar .toggleNavBar:hover.icon {
   color: var(--Primarycolor);
 }
 
@@ -97,76 +109,102 @@
   .toggleNavBar, .closeNavBar {
     display: none;
   }
-  .header {
+  .headerNavbar {
     padding: 1.5rem 2rem;
   }
-  .header .navbar .navLists {
+  .headerNavbar .navbar .navLists-JG {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
   }
-  .header .navbar .navLists .navItem .navLink {
+  .headerNavbar .navbar .navLists-JG .navItem-JG .NavBarLinks-JG {
     color: var(--textColor);
     padding: 0 0.45rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 500;
+    margin-bottom: 0;
   }
-  .header .navbar .navLists .navItem .navLink:hover {
+  .headerNavbar .navbar .navLists-JG .navItem-JG .NavBarLinks-JG:hover {
     color: var(--Primarycolor);
   }
-  .header .navbar .navLists .btn {
-    margin-left: 2rem;
+  .headerNavbar .navbar .navLists-JG .btn-navBar-JG {
+    margin-left: 1.2rem;
+    padding: 0.6rem 1.5rem;
+    background: var(--Primarycolor);
+    border-radius: 10px;
+    border: 1px solid var(--Primarycolor);
   }
-  .header .navbar .navLists .btn a {
+  .headerNavbar .navbar .navLists-JG .btn-navBar-JG a {
+    text-decoration: none;
     color: var(--whiteColor);
     font-weight: 500;
+  }
+  .headerNavbar .navbar .navLists-JG .btn-navBar-JG:hover {
+    background: var(--Secondarycolor);
   }
 }
 @media screen and (min-width: 960px) {
-  .header {
+  .headerNavbar {
     padding: 1.5rem 2rem;
   }
-  .header .navBar .navLists {
+  .headerNavbar .navBar .navLists-JG {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
   }
-  .header .navBar .navLists .navItem {
+  .headerNavbar .navBar .navLists-JG .navItem-JG {
     padding: 0 0.7rem;
   }
-  .header .navBar .navLists .navItem .navLink {
+  .headerNavbar .navBar .navLists-JG .navItem-JG .NavBarLinks-JG {
+    text-decoration: none;
     color: var(--textColor);
     padding: 0 0.45rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 500;
+    margin-bottom: 0px;
+    text-decoration: none;
   }
-  .header .navBar .navLists .navItem .navLink:hover {
+  .headerNavbar .navBar .navLists-JG .navItem-JG .NavBarLinks-JG:hover {
     color: var(--Primarycolor);
   }
-  .header .navBar .navLists .btn {
+  .headerNavbar .navBar .navLists-JG .btn-navBar-JG {
     margin-left: 2rem;
+    width: 140px;
+    padding: 0.6rem 1.5rem;
+    background: var(--Primarycolor);
+    border-radius: 10px;
+    border: 1px solid var(--Primarycolor);
   }
-  .header .navBar .navLists .btn a {
+  .headerNavbar .navBar .navLists-JG .btn-navBar-JG a {
+    text-decoration: none;
     color: var(--whiteColor);
     font-weight: 500;
   }
+  .headerNavbar .navBar .navLists-JG .btn-navBar-JG:hover {
+    background: var(--Secondarycolor);
+  }
 }
 @media screen and (min-width: 1240px) {
-  .header {
+  .headerNavbar {
     padding: 1rem 2.5rem;
   }
-  .header .navBar .navLists .navItem {
+  .headerNavbar .navBar .navLists-JG Link {
+    text-decoration: none;
+  }
+  .headerNavbar .navBar .navLists-JG .navItem-JG {
     padding: 0 0.7rem;
   }
-  .header .navBar .navLists .navItem .navLink {
+  .headerNavbar .navBar .navLists-JG .navItem-JG .NavBarLinks-JG {
     color: var(--textColor);
     padding: 0 0.45rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 500;
+    margin-bottom: 0px;
+    text-decoration: none;
   }
-  .header .navBar .navLists .navItem .navLink:hover {
+  .headerNavbar .navBar .navLists-JG .navItem-JG .NavBarLinks-JG:hover {
     color: var(--Primarycolor);
   }
 }/*# sourceMappingURL=navbar.css.map */

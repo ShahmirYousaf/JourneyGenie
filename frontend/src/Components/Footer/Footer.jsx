@@ -24,14 +24,14 @@ const Footer = () => {
         <video src={video1} loop autoPlay muted type="video/mp4"></video>
       </div>
 
-      <div className="secContent container">
+      <div className="secContent">
         <div className="contactDiv flex">
           <div data-aos="fade-up" className="text">
             <h1>Subsribe to get the latest news about us</h1>
           </div>
 
           <div className="inputDiv">
-            <input data-aos="fade-up" type="text" placeholder='Enter Email Address'/>
+            <input className='SubscribeInput' data-aos="fade-up" type="text" placeholder='Enter Email Address'/>
             <button data-aos="fade-up" className="btn flex" type='submit'>
              Subscribe <FiSend className="icon" />
             </button>

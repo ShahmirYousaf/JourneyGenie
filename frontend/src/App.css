@@ -11,6 +11,10 @@
 
 /* Default colours and styling */
 
+Link {
+    text-decoration: none;
+}
+
 :root{
     --Primarycolor : #FEBA3F;
     --Secondarycolor: #1D3D6E;

@@ -4,7 +4,7 @@ import pandas as pd
 import os
 
 app = Flask(__name__)
-CORS(app)  # Add this line to enable CORS for all routes
+CORS(app) 
 
 # Load data
 final_file = 'yelp_dataset_business_clean_withoriginalfeature.csv'

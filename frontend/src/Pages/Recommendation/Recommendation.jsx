@@ -46,18 +46,18 @@ const Recommendation = () => {
     <div className="recommendation-container">
             <h2 className='RecHeading'>Explore Your Next Adventure</h2>
             <form className='RecForm' onSubmit={handleSubmit}>
-                <input type="text" name="state" placeholder="Enter State" required />
-                <input type="text" name="city" placeholder="Enter City" required />
+                <input className='Rec-Own-Style' type="text" name="state" placeholder="Enter State" required />
+                <input className='Rec-Own-Style' type="text" name="city" placeholder="Enter City" required />
                 {/* <input type="text" name="category" placeholder="Enter Category" required />  */}
-                <select name="category" required>
+                <select className='Rec-Own-Style' name="category" required>
                     <option value="">Select Category</option>
                     {categories.map(category => (
                         <option key={category} value={category}>{category}</option>
                     ))}
                 </select>
 
-                <input type="text" name="day" placeholder="Enter Day" required />
-                <select name="kids" required>
+                <input className='Rec-Own-Style' type="text" name="day" placeholder="Enter Day" required />
+                <select className='Rec-Own-Style' name="kids" required>
                     <option value="">Will you bring kids?</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>

@@ -6,7 +6,11 @@
     --textColor: hsl(240, 3%, 23%);
 }
 
-.header{
+Link{
+    text-decoration: none;
+}
+
+.headerNavbar{
     position: fixed;
     display: flex;
     align-items: center;
@@ -47,17 +51,17 @@
             box-shadow: 0 2px 4px rgba(2, 15, 29, 0.904);
             transition: .2s ease-in-out;
 
-            .navLists{
+            .navLists-JG{
                 flex-direction: column;
                 justify-content: center;
                 width: 100%;
                 margin: auto;
                 padding: .5rem 0;
 
-                .navItem{
+                .navItem-JG{
                     padding: .5rem 0;
                     
-                    .navLink{
+                    .NavBarLinks-JG{
                         color: var(--whiteColor);
                         font-size: .9rem;
                         font-weight: 600;
@@ -68,13 +72,22 @@
                     }
                 }
 
-                .btn{
+                .btn-navBar-JG{
                     margin-top: 1rem;
-    
+                    padding: .6rem 1.5rem;
+                    background: var(--Primarycolor);
+                    border-radius: 10px;
+                    border: 1px solid var(--Primarycolor);
+
+                    
                     a{
+                        text-decoration: none;
                         font-weight: 600;
                         color: var(--whiteColor);
                     }
+                }
+                .btn-navBar-JG:hover{
+                    background: var(--Secondarycolor);
                 }
 
             }
@@ -117,23 +130,24 @@
         display: none;
     }
 
-    .header{
+    .headerNavbar{
         padding: 1.5rem 2rem;
 
         .navbar{
 
-            .navLists{
+            .navLists-JG{
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 flex-direction: row;
 
-                .navItem{
-                    .navLink{
+                .navItem-JG{
+                    .NavBarLinks-JG{
                         color: var(--textColor);
                         padding: 0 0.45rem;
-                        font-size: 0.9rem;
+                        font-size: 1rem;
                         font-weight: 500;
+                        margin-bottom: 0;
 
                         &:hover{
                             color: var(--Primarycolor);
@@ -143,12 +157,21 @@
                     }
                 }
 
-                .btn{
-                    margin-left: 2rem;
+                .btn-navBar-JG{
+                    margin-left: 1.2rem;
+                    padding: .6rem 1.5rem;
+                    background: var(--Primarycolor);
+                    border-radius: 10px;
+                    border: 1px solid var(--Primarycolor);
+                    
                     a{
+                        text-decoration: none;
                         color: var(--whiteColor);
                         font-weight: 500;
                     }
+                }
+                .btn-navBar-JG:hover{
+                    background: var(--Secondarycolor);
                 }
             }
         }
@@ -156,21 +179,25 @@
 }
 
 @media screen and (min-width: 960px) {
-    .header{
+    
+    .headerNavbar{
         padding: 1.5rem 2rem;
         .navBar{
-            .navLists{
+            .navLists-JG{
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 flex-direction: row;
-                .navItem{
+                .navItem-JG{
                     padding: 0 0.7rem;
-                    .navLink{
+                    .NavBarLinks-JG{
+                        text-decoration: none;
                         color: var(--textColor);
                         padding: 0 0.45rem;
-                        font-size: 0.9rem;
+                        font-size: 1rem;
                         font-weight: 500;
+                        margin-bottom: 0px;
+                        text-decoration: none;
 
                         &:hover{
                             color: var(--Primarycolor);
@@ -178,12 +205,22 @@
                         }
                 }
             }
-            .btn{
+            .btn-navBar-JG{
                 margin-left: 2rem;
+                width: 140px;
+                padding: .6rem 1.5rem;
+                background: var(--Primarycolor);
+                border-radius: 10px;
+                border: 1px solid var(--Primarycolor);
+                
                 a{
+                    text-decoration: none;
                     color: var(--whiteColor);
                     font-weight: 500;
                 }
+            }
+            .btn-navBar-JG:hover{
+                background: var(--Secondarycolor);
             }
         }
     }
@@ -191,17 +228,23 @@
 }
 
 @media screen and (min-width: 1240px) {
-    .header{
+    
+    .headerNavbar{
         padding: 1rem 2.5rem;
         .navBar{
-            .navLists{
-                .navItem{
+            .navLists-JG{
+                Link {
+                    text-decoration: none;
+                }
+                .navItem-JG{
                     padding: 0 0.7rem;
-                    .navLink{
+                    .NavBarLinks-JG{
                         color: var(--textColor);
                         padding: 0 0.45rem;
-                        font-size: 0.9rem;
+                        font-size: 1rem;
                         font-weight: 500;
+                        margin-bottom: 0px;
+                        text-decoration: none;
 
                         &:hover{
                             color: var(--Primarycolor);

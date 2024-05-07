@@ -50,12 +50,15 @@ const handleSubmit = async (e) => {
   try {
     const response = await axios.post('http://localhost:8080/api/auth/Login', formData);
     console.log(response.data); 
-    const sessionId = response.data.sessionId; // Extract sessionId from response
+    const sessionId = response.sessionId; // Extract sessionId from response
     localStorage.setItem('sessionId', sessionId); 
+    localStorage.setItem("token", response.data);
     dispatch({ 
       type: "LOGIN_SUCCESS", 
       payload: response.data.details 
     }); 
+    console.log(response.data.details)
+    console.log(response.details)
     navigate('/');
   } catch (error) {
     setErrors(error.response.data.error); // handle error
@@ -98,6 +101,10 @@ const handleSubmit = async (e) => {
                     required
                 />
                 {errors.password && <div className="error">{errors.password}</div>}
+
+                <div className="signup-link">
+                  Don't have an account? <Link to="/Signup">Sign Up</Link>
+                </div>
 
                 <button type="submit">Log In</button>
       </form>
