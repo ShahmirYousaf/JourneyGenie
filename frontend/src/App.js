@@ -11,6 +11,7 @@ import { AuthContext } from "./authContext";
 //import ChatBot from './Pages/ChatBot/ChatBot';
 import CreateReview from './Pages/CreateReview/CreateReview'
 import Recommendation from './Pages/Recommendation/Recommendation';
+import Checkoutform from './Pages/Checkout/Checkoutform';
 
 const App = () => {
 
@@ -36,7 +37,7 @@ const App = () => {
   // </Router> 
   <>
 
-  <Recommendation/>
+  <Checkoutform/>
 
   </>
   );

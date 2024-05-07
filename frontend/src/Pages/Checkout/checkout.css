@@ -67,6 +67,7 @@ select, input[type="number"] {
 
 /* Button styles */
 button {
+  width: auto;
   background-color: #faa80f ;
   color: #fff;
   border: none;
