@@ -18,6 +18,7 @@ import LanguageTranslation from './Pages/LanguageTranslation/LanguageTranslation
 import CurrencyConverter from './Pages/Currency/CurrencyConverter';
 // import WeatherForecast from './Pages/WeatherForecast/WeatherForecast'
 // import AboutUs from './Pages/AboutUs/AboutUs'
+import Checkoutform from './Pages/Checkout/Checkoutform';
 
 const App = () => {
 
@@ -52,7 +53,6 @@ const App = () => {
         <Route path="/view/:id" element={<ProtectedRoute><View/></ProtectedRoute>} />  */}
       </Routes> 
     </Router> 
-
 
   
   
