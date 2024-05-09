@@ -105,11 +105,18 @@
   .service:hover {
     transform: scale(1.1); /* Increase scale on hover */
   }
+
+  .service-Link{
+    text-decoration: none;
+  }
   
-  .service h3 {
+
+
+  .Service-Heading {
     margin: 0; /* Remove default margin */
-    font-size: 0.8rem; /* Adjust font size as needed */
+    font-size: 0.9rem; /* Adjust font size as needed */
     font-style: normal;
+    color: #1D3D6E;
   }
 
   .servicesHeader{
@@ -268,7 +275,7 @@
 .blogContent a {
   display: inline-block;
   margin-top: 10px;
-  color: #007bff;
+  color: #1D3D6E;
   text-decoration: none;
   font-weight: bold;
 }

@@ -50,7 +50,8 @@ const CreateReview = () => {
                 withCredentials: false
             }) 
   
-            navigate(`/view/${response?.data?._id}`); 
+            // navigate(`/view/${response?.data?._id}`); 
+            navigate('/')
         } 
         catch (err) { 
             console.log(err) 

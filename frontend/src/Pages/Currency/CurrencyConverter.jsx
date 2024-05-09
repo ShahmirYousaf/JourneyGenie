@@ -57,7 +57,7 @@ const CurrencyConverter = () => {
 
 
       <div className='from'>
-        <label className='from label' htmlFor="fromCurrency">From :</label>
+        <label className='from label' htmlFor="fromCurrency">From </label>
         <select id="fromCurrency" value={fromCurrency} onChange={handleFromCurrencyChange}>
           <option value="USD">USD</option>
           <option value="EUR">EUR</option>
@@ -75,7 +75,7 @@ const CurrencyConverter = () => {
         </select>
       </div>
       <div className='to'>
-      <label className='to label' htmlFor="toCurrency"> {'\u00A0'}&nbsp;&nbsp;&nbsp;To :</label>
+      <label className='to label' htmlFor="toCurrency"> {'\u00A0'}&nbsp;&nbsp;&nbsp;To </label>
          <select id="toCurrency" value={toCurrency} onChange={handleToCurrencyChange}>
          <option value="USD">USD</option>
           <option value="EUR">EUR</option>

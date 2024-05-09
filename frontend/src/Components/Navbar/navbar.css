@@ -6,8 +6,9 @@
   --textColor: hsl(240, 3%, 23%);
 }
 
-Link {
+.link-underline-issue {
   text-decoration: none;
+  margin-top: 10px;
 }
 
 .headerNavbar {
@@ -176,6 +177,7 @@ Link {
     background: var(--Primarycolor);
     border-radius: 10px;
     border: 1px solid var(--Primarycolor);
+    margin-top: 7px;
   }
   .headerNavbar .navBar .navLists-JG .btn-navBar-JG a {
     text-decoration: none;

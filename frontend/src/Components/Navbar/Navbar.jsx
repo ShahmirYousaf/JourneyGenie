@@ -45,25 +45,25 @@ const Navbar = () => {
             <div className={active}>
                 <ul className="navLists-JG flex">
 
-                    <Link  to="/">
+                    <Link className='link-underline-issue'  to="/">
                     <li className="navItem-JG">
                         <p className="NavBarLinks-JG">Home</p>
                     </li>
                     </Link>
 
-                    <Link to="/Recommendation">
+                    <Link className='link-underline-issue' to="/Recommendation">
                     <li className="navItem-JG">
                         <p className="NavBarLinks-JG">Recommendations</p>
                     </li>
                     </Link>
 
-                    <Link to="/Booking">
+                    <Link className='link-underline-issue' to="/Booking">
                     <li className="navItem-JG">
                         <p className="NavBarLinks-JG">Booking</p>
                     </li>
                     </Link>
 
-                    <Link to="/create">
+                    <Link className='link-underline-issue' to="/create">
                     <li className="navItem-JG">
                         <p className="NavBarLinks-JG">Review</p>
                     </li>

@@ -9,9 +9,11 @@ import alaskaImage from '../../Assets/alaska.jpg';
 import koreaImage from '../../Assets/korea.jpg';
 import './booking.css';
 import Navbar from '../../Components/Navbar/Navbar';
+import { useNavigate, Link } from "react-router-dom"; 
 
 const Booking = () => {
   const [tourPackages, setTourPackages] = useState([]);
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const fetchTourPackages = async () => {
@@ -27,9 +29,8 @@ const Booking = () => {
   }, []); // Empty dependency array for initial fetch
 
   const handleBookNow = (packageId) => {
+    navigate('./Checkout')
     console.log(`Booking package with ID: ${packageId}`);
-    // Implement booking logic here
-    // You can redirect to a booking page or perform other actions
   };
 
   const countryImageMap = {
