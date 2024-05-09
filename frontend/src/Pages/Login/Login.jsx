@@ -50,21 +50,23 @@ const handleSubmit = async (e) => {
   try {
     const response = await axios.post('http://localhost:8080/api/auth/Login', formData);
     console.log(response.data); 
-    const sessionId = response.sessionId; // Extract sessionId from response
+    const sessionId = response.data.sessionId; // Extract sessionId from response
     localStorage.setItem('sessionId', sessionId); 
-    localStorage.setItem("token", response.data);
+    localStorage.setItem("token", response.data.token);
+    console.log(response.data.token)
+    console.log(sessionId)
+
     dispatch({ 
       type: "LOGIN_SUCCESS", 
       payload: response.data.details 
     }); 
     console.log(response.data.details)
-    console.log(response.details)
     navigate('/');
   } catch (error) {
     setErrors(error.response.data.error); // handle error
     dispatch({ 
       type: "LOGIN_FAILURE", 
-      payload: error.response.data 
+      payload: "An error occurred while logging in" 
     }); 
   }
   
@@ -106,7 +108,7 @@ const handleSubmit = async (e) => {
                   Don't have an account? <Link to="/Signup">Sign Up</Link>
                 </div>
 
-                <button type="submit">Log In</button>
+                <button className='login-button' type="submit">Log In</button>
       </form>
       <div className="shape"></div>
     </div>

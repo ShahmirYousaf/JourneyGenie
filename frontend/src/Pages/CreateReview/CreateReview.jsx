@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
 import './CreateReview.css'
+import Navbar from '../../Components/Navbar/Navbar';
 
 const CreateReview = () => {
 
@@ -24,31 +25,24 @@ const CreateReview = () => {
   
         var newEntry 
   
-        if (files) { 
-            const list = await Promise.all(Object.values(files).map(async (file) => { 
-                const data = new FormData(); 
-                data.append("file", file); 
-                data.append("upload_preset", "upload") 
-                const uploadRes = await axios.post( 
-                    "https://api.cloudinary.com/v1_1/<your_cloudinary_key>/image/upload", 
-                    data, { withcredentials: false } 
-                ) 
-                const { url } = uploadRes.data; 
-                return url; 
-            })) 
-  
-  
-            newEntry = { 
-                ...info, author: user._id, photos: list 
-            } 
-  
-        } 
-        else { 
-            newEntry = { 
-                ...info, author: user._id 
-            } 
-        } 
-  
+        if (files.length > 0) {
+            // Store image data URLs in local storage
+            const imageUrls = Array.from(files).map((file) => URL.createObjectURL(file)); 
+            localStorage.setItem('imageUrls', JSON.stringify(imageUrls));
+    
+            // Prepare newEntry with image URLs
+            newEntry = {
+                ...info,
+                author: user._id,
+                photos: imageUrls, // Use the stored image URLs
+            };
+        } else {
+            // If no files selected, create newEntry without photos
+            newEntry = {
+                ...info,
+                author: user._id,
+            };
+        }
   
         try { 
             const response = await axios.post('http://localhost:8080/api/entries/', 
@@ -56,7 +50,7 @@ const CreateReview = () => {
                 withCredentials: false
             }) 
   
-            navigate(`/View/${response?.data?._id}`); 
+            navigate(`/view/${response?.data?._id}`); 
         } 
         catch (err) { 
             console.log(err) 
@@ -64,14 +58,15 @@ const CreateReview = () => {
     } 
   return (
     <div className='create'>  
-            <div className="createContainer"> 
+        <Navbar/>
+        <div className="createContainer"> 
 
             <h1 className='CreateReviewHeading'>Create Review</h1>
   
                 <div className="picsContainer"> 
   
                     <div className="formInput"> 
-                        <h2>Upload Images (Max 3)</h2> 
+                        <h2 className='Review-Create-Heading'>Upload Images (Max 3)</h2> 
                         <label htmlFor="file"> 
                             <FontAwesomeIcon 
                                 className="icon" icon={faPlusCircle} /> 

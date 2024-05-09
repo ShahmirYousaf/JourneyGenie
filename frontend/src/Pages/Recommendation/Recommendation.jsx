@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './Recommendation.css'
+import Navbar from '../../Components/Navbar/Navbar';
 
 const categories = [
     'Restaurants', 
@@ -44,6 +45,7 @@ const Recommendation = () => {
     };
   return (
     <div className="recommendation-container">
+        <Navbar/>
             <h2 className='RecHeading'>Explore Your Next Adventure</h2>
             <form className='RecForm' onSubmit={handleSubmit}>
                 <input className='Rec-Own-Style' type="text" name="state" placeholder="Enter State" required />

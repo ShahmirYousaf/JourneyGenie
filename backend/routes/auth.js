@@ -66,7 +66,10 @@ router.post('/Login', async (req, res) => {
     const sessionId = uuidv4();
 
     const token = user.generateAuthToken();
-    res.status(200).send({ data: token , sessionId, message: "Logged In Successfully"});
+
+    const { password, isAdmin, ...otherDetails } = user._doc;
+
+    res.status(200).send({ details: {...otherDetails}, token , isAdmin, sessionId, message: "Logged In Successfully"});
 
   } catch (error) {
     console.error(error);

@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch, Routes} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css'
 import { useContext } from "react"; 
 import { AuthContext } from "./authContext"; 
@@ -17,26 +17,24 @@ import Booking from './Pages/Booking/Booking'
 import LanguageTranslation from './Pages/LanguageTranslation/LanguageTranslation'
 import CurrencyConverter from './Pages/Currency/CurrencyConverter';
 // import WeatherForecast from './Pages/WeatherForecast/WeatherForecast'
-// import AboutUs from './Pages/AboutUs/AboutUs'
 import Checkoutform from './Pages/Checkout/Checkoutform';
 
 const App = () => {
 
-  // const { user } = useContext(AuthContext); 
+  const { user } = useContext(AuthContext); 
 
-  // const ProtectedRoute = ({ children }) => { 
-  //   if (!user) { 
-  //     return <Login/>; 
-  //   } else { 
-  //     return children; 
-  //   } 
-  // }; 
+  const ProtectedRoute = ({ children }) => { 
+    if (!user) { 
+      return <Login/>; 
+    } else { 
+      return children; 
+    } 
+  }; 
 
   return (
     <Router> 
       <Routes> 
-        {/* <Route path="/" element={<ProtectedRoute> <Home/> </ProtectedRoute>} />  */}
-        <Route path="/" element={ <Home/> } />
+        <Route path="/" element={<ProtectedRoute> <Home/> </ProtectedRoute>} /> 
         <Route path="/Login" element={<Login/>} />
         <Route path="/Login/Signup" element={<Login/>} />
         <Route path="/Signup" element={<Signup/>} /> 
@@ -47,10 +45,31 @@ const App = () => {
         <Route path="/Currency" element={<CurrencyConverter/>} />
         <Route path="/LanguageTranslation" element={<LanguageTranslation/>} />
         <Route path="/ChatBot" element={<ChatBot/>} />
+        <Route path="/Checkout" element={<Checkoutform/>} />
+        <Route path="/create" element={<ProtectedRoute><CreateReview/></ProtectedRoute>} /> 
+        <Route path="/view/:id" element={<ProtectedRoute><View/></ProtectedRoute>} />
+
         {/* <Route path="/Weather" element={<WeatherForecast/>} /> */}
-        {/* <Route path="/AboutUs" element={<AboutUs/>} /> */}
-        {/* <Route path="/create" element={<ProtectedRoute><CreateReview/></ProtectedRoute>} /> 
-        <Route path="/view/:id" element={<ProtectedRoute><View/></ProtectedRoute>} />  */}
+         {/* <Route path="/" element={ <Home/> } /> */}
+
+        {/* MORE ROUTES */}
+
+        <Route path="/Recommendation" element={<Recommendation/>} />
+        <Route path="/Recommendation/Home" element={<Home/>} />
+        <Route path="/Recommendation/Booking" element={<Booking/>} />
+        <Route path="/Recommendation/Home/Currency" element={<CurrencyConverter/>} />
+        <Route path="/Recommendation/Home/LanguageTranslation" element={<LanguageTranslation/>} />
+        <Route path="/Recommendation/Home/ChatBot" element={<ChatBot/>} />
+
+        {/* MORE ROUTES */}
+
+        <Route path="/Booking/Recommendation" element={<Recommendation/>} />
+        <Route path="/Booking/Home" element={<Home/>} />
+        <Route path="/Booking" element={<Booking/>} />
+        <Route path="/Booking/Home/Currency" element={<CurrencyConverter/>} />
+        <Route path="/Booking/Home/LanguageTranslation" element={<LanguageTranslation/>} />
+        <Route path="/Booking/Home/ChatBot" element={<ChatBot/>} />
+
       </Routes> 
     </Router> 
 

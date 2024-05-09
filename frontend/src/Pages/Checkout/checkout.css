@@ -1,6 +1,4 @@
-/* checkout.css */
 
-/* Container styles */
 .checkout-container {
   max-width: 600px;
   margin: 0 auto;
@@ -12,10 +10,11 @@
 }
 
 /* Heading styles */
-h2 {
+.Stripe-Form-Heading {
   color: #fff9f9;
   font-size: 24px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 /* Booking details container */
@@ -48,7 +47,7 @@ h2 {
 }
 
 /* Label styles */
-label {
+.StripeLabel {
   display: block;
   font-size: 16px;
   color: #fafafa;
@@ -66,7 +65,7 @@ select, input[type="number"] {
 }
 
 /* Button styles */
-button {
+.Stripe-button {
   width: auto;
   background-color: #faa80f ;
   color: #fff;
@@ -78,7 +77,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.Stripe-button:hover {
   background-color:  #FEBA3F;
 }
 

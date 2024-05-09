@@ -8,6 +8,7 @@ import egyptImage from '../../Assets/egypt.jpg';
 import alaskaImage from '../../Assets/alaska.jpg';
 import koreaImage from '../../Assets/korea.jpg';
 import './booking.css';
+import Navbar from '../../Components/Navbar/Navbar';
 
 const Booking = () => {
   const [tourPackages, setTourPackages] = useState([]);
@@ -42,6 +43,7 @@ const Booking = () => {
 
   return (
     <div className="booking-container">
+      <Navbar/>
       <div className="hero-section">
         <div className="background-image">
           <img src={fly} alt="Background" />

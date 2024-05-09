@@ -81,28 +81,28 @@ const Checkoutform = () => {
 
   return (
     <div className="checkout-container">
-      <h2>Booking Details</h2>
+      <h1 className='Stripe-Form-Heading'>Booking Details</h1>
       <div className="booking-details">
         <div className="form-container">
-          <label>Select Tour Package:</label>
-          <select value={selectedPackage ? selectedPackage._id : ''} onChange={handlePackageChange}>
+          <label className='StripeLabel'>Select Tour Package:</label>
+          <select className='Stripe-Select' value={selectedPackage ? selectedPackage._id : ''} onChange={handlePackageChange}>
             {tourPackages.map(pkg => (
               <option key={pkg._id} value={pkg._id}>{pkg.Country}</option>
             ))}
           </select>
-          <label>Price: ${selectedPackage ? selectedPackage.Price || 0 : 0}</label>
-          <label>Select Type:</label>
-          <select value={selectedType} onChange={(e) => setSelectedType(e.target.value)}>
+          <label className='StripeLabel'>Price: ${selectedPackage ? selectedPackage.Price || 0 : 0}</label>
+          <label className='StripeLabel'>Select Type:</label>
+          <select className='Stripe-Select' value={selectedType} onChange={(e) => setSelectedType(e.target.value)}>
             <option value="Premium">Premium</option>
             <option value="VIP">VIP</option>
           </select>
-          <label>Number of Persons:</label>
+          <label className='StripeLabel'>Number of Persons:</label>
           <input
             type="number"
             value={numberOfPersons}
             onChange={(e) => setNumberOfPersons(parseInt(e.target.value) || 0)} // Ensure valid number
           />
-          <button onClick={handlePayment}>Proceed to Payment</button>
+          <button className='Stripe-button' onClick={handlePayment}>Proceed to Payment</button>
         </div>
       </div>
     </div>

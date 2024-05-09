@@ -1,13 +1,22 @@
 const Entry = require("../models/Entry");
-const User = require("../models/User");
+const {User, validate, ValidateLogin} = require('../models/User');
+
 
 const createEntry = async (req, res, next) => {
   const newEntry = new Entry(req.body);
+
+//   const storedUserData = localStorage.getItem('user');
+
+// if (storedUserData) {
+//   const userObj = JSON.parse(storedUserData);
+// }
+
   try {
     const savedEntry = await newEntry.save();
 
     try {
       const user = await User.findById(savedEntry.author);
+      // const user = await User.findOne({ userObj.email });
       user.entries.push(savedEntry._id);
       await user.save();
     } catch (err) {

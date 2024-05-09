@@ -12,7 +12,7 @@ const Reviews = () => {
     const [query, setQuery] = useState(""); 
     const { user } = useContext(AuthContext) 
     const { data, loading } = useFetch( 
-        `/entries/author/${user._id}`) 
+        `http://localhost:8080/entries/author/${user._id}`) 
   
     const keys = ["title", "location", "date"]; 
   

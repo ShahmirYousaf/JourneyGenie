@@ -57,7 +57,7 @@ const Footer = () => {
               <AiOutlineTwitter className="icon" />
               <AiOutlineYoutube className="icon" />
               <AiOutlineInstagram className="icon"/>
-              <FaTripadvisor className="icon"/>
+              <a href='https://www.tripadvisor.com/'><FaTripadvisor className="icon"/></a>
 
             </div>
           </div>
@@ -86,28 +86,28 @@ const Footer = () => {
 
               <div data-aos="fade-up" data-aos-duration="4000" className="linkGroup">
                 <span className="groupTitle">
-                  OUR WEBSITE
+                  OTHER WEBSITES
                 </span>
 
                 <li className="footerList flex">
                   <FiChevronRight className='icon' />
-                  Services
+                  Airbnb
                 </li>
 
                 <li className="footerList flex">
                   <FiChevronRight className='icon' />
-                  About
+                  Tripadvisor
                 </li>
 
                 <li className="footerList flex">
                   <FiChevronRight className='icon' />
-                  Tourism
+                  Booking.com
                 </li>
               </div>
           </div>
 
           <div className="footerDiv flex">
-            <small>TRAVEL PLANNER APP</small>
+            <small>TRAVEL PLANNER WEBSITE</small>
             <small> &copy; COPYRIGHTS RESERVED - JOURNIEGENIE 2024</small>
 
           </div>
