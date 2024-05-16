@@ -27,6 +27,7 @@ const Navbar = () => {
         e.preventDefault(); 
         localStorage.removeItem("token");
         localStorage.removeItem("sessionId");
+        localStorage.removeItem("LoggedInUser");
         dispatch({ type: "LOGOUT" }); 
         navigate("/Login") 
     } 
@@ -66,6 +67,18 @@ const Navbar = () => {
                     <Link className='link-underline-issue' to="/create">
                     <li className="navItem-JG">
                         <p className="NavBarLinks-JG">Review</p>
+                    </li>
+                    </Link>
+
+                    <Link className='link-underline-issue' to="/Profile">
+                    <li className="navItem-JG">
+                        <p className="NavBarLinks-JG">Profile</p>
+                    </li>
+                    </Link>
+
+                    <Link className='link-underline-issue' to="/AboutUs">
+                    <li className="navItem-JG">
+                        <p className="NavBarLinks-JG">AboutUs</p>
                     </li>
                     </Link>
 

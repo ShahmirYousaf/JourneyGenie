@@ -53,6 +53,7 @@ const handleSubmit = async (e) => {
     const sessionId = response.data.sessionId; // Extract sessionId from response
     localStorage.setItem('sessionId', sessionId); 
     localStorage.setItem("token", response.data.token);
+    localStorage.setItem("LoggedInUser",JSON.stringify(response.data.details));
     console.log(response.data.token)
     console.log(sessionId)
 

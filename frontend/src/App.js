@@ -18,6 +18,8 @@ import LanguageTranslation from './Pages/LanguageTranslation/LanguageTranslation
 import CurrencyConverter from './Pages/Currency/CurrencyConverter';
 import WeatherForecast from './Pages/WeatherForecast/WeatherForecast'
 import Checkoutform from './Pages/Checkout/Checkoutform';
+import AboutUs from './Pages/AboutUs/AboutUs'
+import Profile from './Pages/Profile/MyProfile'
 
 const App = () => {
 
@@ -37,9 +39,9 @@ const App = () => {
         <Route path="/" element={<ProtectedRoute> <Home/> </ProtectedRoute>} /> 
         <Route path="/Login" element={<Login/>} />
         <Route path="/Signup" element={<Signup/>} /> 
-        <Route path="/Recommendation" element={<Recommendation/>} />
-        <Route path="/Home" element={<Home/>} />
-        <Route path="/Booking" element={<Booking/>} />
+        <Route path="/Recommendation" element={<ProtectedRoute><Recommendation/></ProtectedRoute>} />
+        <Route path="/Home" element={<ProtectedRoute><Home/> </ProtectedRoute>} />
+        <Route path="/Booking" element={<ProtectedRoute><Booking/> </ProtectedRoute>} />
         <Route path="/Currency" element={<CurrencyConverter/>} />
         <Route path="/LanguageTranslation" element={<LanguageTranslation/>} />
         <Route path="/ChatBot" element={<ChatBot/>} />
@@ -47,7 +49,8 @@ const App = () => {
         <Route path="/create" element={<ProtectedRoute><CreateReview/></ProtectedRoute>} /> 
         <Route path="/view/:id" element={<ProtectedRoute><View/></ProtectedRoute>} />
         <Route path="/Weather" element={<WeatherForecast/>} />
-         {/* <Route path="/" element={ <Home/> } /> */}
+        <Route path="/Profile" element={<Profile/>} />
+        <Route path="/AboutUs" element={<AboutUs/>} />
 
         {/* MORE ROUTES */}
 

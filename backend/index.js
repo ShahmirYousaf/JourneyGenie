@@ -22,7 +22,7 @@ app.use(helmet());
 app.use(morgan("dev"));
 app.use(cookieParser());
 
-// Define and use existing routes (e.g., auth, booking, etc.)
+// Defining and using existing routes (e.g., auth, booking, chatbot etc.)
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/entries', require('./routes/entry')); 
 app.use('/api', require('./routes/stats'));
@@ -30,8 +30,7 @@ app.use('/api/chatbot', require('./routes/chatbot'));
 app.use('/api/booking', require('./routes/Booking'));
 app.use('/api/payment', require('./routes/payment'));
 app.use('/api/key', require('./routes/pkey'));
-// Add other routes as needed
-
+app.use('/api/profile', require('./routes/profile'));
 
 
 // Start the server

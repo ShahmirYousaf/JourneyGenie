@@ -6,6 +6,7 @@ import wania from '../../Assets/about-wania.png';
 import shahmir from '../../Assets/about-shahmir.png';
 import mahrukh from '../../Assets/about-mahrukh.png';
 import Chart from 'chart.js/auto';
+import Navbar from '../../Components/Navbar/Navbar';
 
 
 const AboutUs = () => {
@@ -37,7 +38,8 @@ const AboutUs = () => {
 
   return (
 	<div className='Main-About-Container'>
-	<div className="container" style={{ marginTop: '100px' }}>
+		<Navbar/>
+	<div className="container" style={{ marginTop: '130px' }}>
 	  <div className="d-md-flex">
 		<div className="col my-auto">
 		  <h1 className="text-dark" style={{ fontWeight: 600, fontSize: '600%', textAlign: 'center'}}>About.</h1>
