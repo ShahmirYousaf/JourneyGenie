@@ -113,7 +113,7 @@ const displayNextDaysWeather = () => {
   
 
   return (
-    <section className="display-temp my-5 py-2" id="search">
+    <section className="display-temp py-2" id="search">
       <div className="container">
         <div className="search m-auto">
           <input

@@ -9,10 +9,11 @@ import alaskaImage from '../../Assets/alaska.jpg';
 import koreaImage from '../../Assets/korea.jpg';
 import './booking.css';
 import Navbar from '../../Components/Navbar/Navbar';
-import { useNavigate, Link } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom"; 
 
 const Booking = () => {
   const [tourPackages, setTourPackages] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate(); 
 
   useEffect(() => {
@@ -26,7 +27,7 @@ const Booking = () => {
     };
 
     fetchTourPackages();
-  }, []); // Empty dependency array for initial fetch
+  }, []); 
 
   const handleBookNow = (packageId) => {
     navigate('./Checkout')
@@ -42,6 +43,10 @@ const Booking = () => {
     Korea: koreaImage,
   };
 
+  const filteredTourPackages = tourPackages.filter(tour => 
+    tour.Country.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="booking-container">
       <Navbar/>
@@ -54,8 +59,17 @@ const Booking = () => {
           <button className="explore-button">Explore</button>
         </div>
       </div>
+      <div className="TourPackage-search-bar">
+        <input
+          className='tourSearch'
+          type="text"
+          placeholder="Search by Country"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+      </div>
       <div className="tour-packages">
-        {tourPackages.map((tour) => (
+        {filteredTourPackages.map((tour) => (
           <div key={tour._id} className="tour-package">
           {/* Text content section (60% width) */}
           <div className="package-details">

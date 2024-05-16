@@ -61,6 +61,7 @@ const handleSubmit = async (e) => {
       payload: response.data.details 
     }); 
     console.log(response.data.details)
+    alert("Login Successful")
     navigate('/');
   } catch (error) {
     setErrors(error.response.data.error); // handle error

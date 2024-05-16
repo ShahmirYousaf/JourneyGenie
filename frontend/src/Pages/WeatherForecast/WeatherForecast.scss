@@ -1,3 +1,13 @@
+.display-temp {
+  background-image: url(../../Assets/weather1.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    overflow-x: hidden; 
+    overflow-y: auto;
+}
+
+
 .display-temp .search {
   width: 100%;
   display: flex;
@@ -9,9 +19,10 @@
 .display-temp #search-bar {
   padding: 10px;
   border: 1.5px solid #1D3D6E;
-  border-radius: 5px;
+  border-radius: 6px;
   width: 100%;
   max-width: 300px;
+  margin-top: 20px;
 }
 
 .display-temp .city-temp {

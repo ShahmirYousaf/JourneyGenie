@@ -46,7 +46,6 @@ const App = () => {
         <Route path="/Booking/Checkout" element={<Checkoutform/>} />
         <Route path="/create" element={<ProtectedRoute><CreateReview/></ProtectedRoute>} /> 
         <Route path="/view/:id" element={<ProtectedRoute><View/></ProtectedRoute>} />
-
         <Route path="/Weather" element={<WeatherForecast/>} />
          {/* <Route path="/" element={ <Home/> } /> */}
 

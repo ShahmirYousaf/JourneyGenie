@@ -43,6 +43,7 @@ const Signup = () => {
         try {
           const response = await axios.post('http://localhost:8080/api/auth/Signup', formData);
           console.log(response.data); // handle success
+          alert("Registration Successful")
           navigate("/Login")
         } catch (error) {
           console.error(error.response.data); // handle error
