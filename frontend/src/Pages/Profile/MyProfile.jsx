@@ -26,7 +26,6 @@ const MyProfile = () => {
 
     const userData = JSON.parse(loggedInUser);
 
-    // Access the specific properties you need
     const userId = userData._id;
 
     axios.get('http://localhost:8080/api/profile/userData', {

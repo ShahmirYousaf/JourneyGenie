@@ -1,102 +1,114 @@
-import React, { useContext, useState } from 'react'
-import useFetch from '../../useFetch'
-import { faCalendar, faMapLocationDot, faCircleArrowLeft, faCircleArrowRight } from "@fortawesome/free-solid-svg-icons"; 
-import { useLocation,  useNavigate } from "react-router-dom"; 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
-import './View.css'
-import axios from "axios"; 
-import { AuthContext } from "../../authContext";
+import React, { useContext, useState, useEffect } from 'react';
+import { faCalendar, faMapLocationDot, faCircleArrowLeft, faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { useLocation, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import './View.css';
+import axios from "axios";
 
 const View = () => {
+    const location = useLocation();
+    const loggedInUser = localStorage.getItem('LoggedInUser');
+    const userData = JSON.parse(loggedInUser);
+    const userId = userData._id;
 
-    const location = useLocation(); 
-    const id = location.pathname.split("/")[2]; 
-    const { user } = useContext(AuthContext); 
-    const { data } = useFetch(`/entries/${id}`) 
-    const [slideNumber, setSlideNumber] = useState(0); 
-  
-    const navigate = useNavigate(); 
-  
-    const handleDelete = async (id) => { 
-        try { 
-  
-            await axios.delete(`http://localhost:8080/api/entries/${data._id}`) 
-  
-            navigate('/') 
-        } catch (err) { 
-            console.log(err) 
-        } 
-    }; 
-  
-    const handleMove = (direction) => { 
-        let newSlideNumber; 
-        let size = data.photos.length 
-        if (direction === "l") { 
-            newSlideNumber = slideNumber === 0 ? size - 1 : slideNumber - 1; 
-        } else { 
-            newSlideNumber = slideNumber === size - 1 ? 0 : slideNumber + 1; 
-        } 
-        setSlideNumber(newSlideNumber) 
-    } 
-  return (
-    <div className='view'> 
-    <div className="postPageBG"> 
-        <div className="upperContent"> 
-            <h1>{data.title}</h1> 
-            <p><FontAwesomeIcon className="icon"
-                icon={faCalendar} /> 
-                {data.date} 
-            </p> 
-            <p><FontAwesomeIcon className="icon"
-                icon={faMapLocationDot} /> 
-                {data.location} 
-            </p> 
-        </div> 
-    </div> 
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [slideNumber, setSlideNumber] = useState(0);
 
-    <div className="postContainer"> 
+    const navigate = useNavigate();
 
-        <div className="leftContainer"> 
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8080/api/entries/author/${userId}`);
+                console.log('Fetched data:', response.data);
+                setData(response.data);
+            } catch (err) {
+                console.error('Error fetching data:', err);
+                setError(err);
+            } finally {
+                setLoading(false);
+            }
+        };
 
+        fetchData();
+    }, [userId]);
 
-            {data.photos ? (<div className="images"> 
+    const handleDelete = async (entryId) => {
+        try {
+            await axios.delete(`http://localhost:8080/api/entries/${entryId}`);
+            setData(prevData => prevData.filter(entry => entry._id !== entryId));
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
+    const handleMove = (direction, size) => {
+        let newSlideNumber;
+        if (direction === "l") {
+            newSlideNumber = slideNumber === 0 ? size - 1 : slideNumber - 1;
+        } else {
+            newSlideNumber = slideNumber === size - 1 ? 0 : slideNumber + 1;
+        }
+        setSlideNumber(newSlideNumber);
+    };
 
-                <img src={data.photos[slideNumber]} 
-                    height="300px" alt="" /> 
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error loading data</div>;
 
-                {data.photos.length > 1 ? <div className="arrows"> 
-                    <FontAwesomeIcon 
-                        icon={faCircleArrowLeft} 
-                        className="arrow"
-                        onClick={() => handleMove("l")} 
-                    /> 
-                    <FontAwesomeIcon 
-                        icon={faCircleArrowRight} 
-                        className="arrow"
-                        onClick={() => handleMove("r")} 
-                    /> 
-                </div> : ""} 
-            </div>) : ("no Images")} 
+    return (
+        <div className='view'>
+            {data.map(entry => (
+                <div key={entry._id} className="postContainer">
+                    <div className="postPageBG">
+                        <div className="upperContent">
+                            <h1>{entry.title}</h1>
+                            <p>
+                                <FontAwesomeIcon className="icon" icon={faCalendar} /> 
+                                {entry.date}
+                            </p>
+                            <p>
+                                <FontAwesomeIcon className="icon" icon={faMapLocationDot} /> 
+                                {entry.location}
+                            </p>
+                        </div>
+                    </div>
 
-        </div> 
+                    <div className="leftContainer">
+                        {entry.photos ? (
+                            <div className="images">
+                                <img src={entry.photos[slideNumber]} height="300px" alt="" />
+                                {entry.photos.length > 1 && (
+                                    <div className="arrows">
+                                        <FontAwesomeIcon 
+                                            icon={faCircleArrowLeft} 
+                                            className="arrow"
+                                            onClick={() => handleMove("l", entry.photos.length)} 
+                                        />
+                                        <FontAwesomeIcon 
+                                            icon={faCircleArrowRight} 
+                                            className="arrow"
+                                            onClick={() => handleMove("r", entry.photos.length)} 
+                                        />
+                                    </div>
+                                )}
+                            </div>
+                        ) : (
+                            "No Images"
+                        )}
+                    </div>
 
-        <div className="rightContainer"> 
-
-            <p> 
-                " {data.text} "
-            </p> 
-            <button className="del_button"
-                style={{ "marginRight": "5px" }} 
-                onClick={handleDelete}> 
-                Delete 
-            </button> 
-
-        </div> 
-
-    </div> 
-</div> 
-  )
+                    <div className="rightContainer">
+                        <p>" {entry.text} "</p>
+                        <button className="del_button" style={{ marginRight: "5px" }} onClick={() => handleDelete(entry._id)}>
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            ))}
+        </div>
+    );
 }
 
-export default View
+export default View;

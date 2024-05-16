@@ -50,7 +50,7 @@ html {
 } 
   
 .upperContent h1 { 
-    color: var(--blue); 
+    color: #1D3D6E; 
     font-size: 2.5rem; 
     margin-bottom: 20px; 
     font-weight: bold; 
@@ -59,7 +59,11 @@ html {
 .upperContent p { 
     margin-top: 10px; 
     font-size: 1.2rem; 
-    color: var(--dark); 
+    color: #1D3D6E; 
+} 
+
+.upperContent .icon { 
+   margin-right: 12px;
 } 
   
 .images { 
@@ -69,7 +73,7 @@ html {
 } 
   
 .images img { 
-    height: 400px; 
+    height: 350px; 
 } 
   
 .images .arrows { 
@@ -80,7 +84,7 @@ html {
 .images .arrow { 
     margin: 20px; 
     font-size: 40px; 
-    color: var(--dark-purple); 
+    color: #1D3D6E; 
     cursor: pointer; 
 } 
   
@@ -99,9 +103,11 @@ html {
     flex-direction: column; 
     justify-content: center; 
     align-items: center; 
-    width: 50%; 
+    width: 40%; 
     font-size: 1.25rem; 
-    height: 500px; 
+    height: 470px; 
+    background-color: #1D3D6E;
+    border-radius: 10px;
 } 
   
 .rightContainer .title { 
@@ -112,26 +118,21 @@ html {
     margin: 20px 0; 
 } 
   
-.rightContainer span { 
-    color: #126e82; 
-    font-weight: bolder; 
-} 
+
   
 .rightContainer p { 
-    font-family: "Caveat", cursive; 
     margin: 15px 0; 
+    color: black;
+    font-weight: 500;
 } 
   
-.rightContainer .icon { 
-    color: #51c4d3; 
-    padding-right: 10px; 
-} 
+
   
 .del_button { 
     width: 100px; 
     height: 40px; 
     border: none; 
-    background: var(--purple); 
+    background: #FEBA3F; 
     border-radius: 25px; 
     font-size: 15px; 
     color: white; 

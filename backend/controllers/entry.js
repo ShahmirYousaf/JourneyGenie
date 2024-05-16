@@ -5,12 +5,6 @@ const {User, validate, ValidateLogin} = require('../models/User');
 const createEntry = async (req, res, next) => {
   const newEntry = new Entry(req.body);
 
-//   const storedUserData = localStorage.getItem('user');
-
-// if (storedUserData) {
-//   const userObj = JSON.parse(storedUserData);
-// }
-
   try {
     const savedEntry = await newEntry.save();
 
@@ -63,6 +57,7 @@ const deleteEntry = async (req, res, next) => {
 
 const getEntries = async (req, res, next) => {
   const userId = req.params.userId;
+  
   try {
     const entries = await Entry.find({ author: userId });
     res.status(200).json(entries);

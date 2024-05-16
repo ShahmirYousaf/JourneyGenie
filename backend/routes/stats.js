@@ -1,16 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const {User, validate} = require('../models/User');
+const {User, validate, ValidateLogin} = require('../models/User');
 
 // Route to fetch user statistics
 router.get('/userStats', async (req, res) => {
     try {
       // Count the number of male and female users
-      const maleCount = await User.countDocuments({ gender: 'male' });
-      const femaleCount = await User.countDocuments({ gender: 'female' });
-        
+      const maleCount = await User.countDocuments({ gender: 'Male' });
+      const femaleCount = await User.countDocuments({ gender: 'Female' });
+
       // Send the user statistics as JSON response
-      res.json({ maleCount, femaleCount });
+      res.status(200).json({ maleCount, femaleCount });
     } catch (error) {
       // Handle errors
       console.error(error);

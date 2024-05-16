@@ -1,4 +1,4 @@
-import React,  { useEffect } from 'react';
+import React,  { useEffect, useRef } from 'react';
 import axios from 'axios';
 import './AboutUs.css'; 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -10,12 +10,19 @@ import Navbar from '../../Components/Navbar/Navbar';
 
 
 const AboutUs = () => {
+	const chartRef = useRef(null);
 	useEffect(() => {
-		// Fetch user statistics from the backend
-		axios.get('http://localhost:8080/api/userStats')
-		  .then(response => {
+		const fetchUserStats = async () => {
+		  try {
+			const response = await axios.get('http://localhost:8080/api/stats/userStats');
+			
+			// Destroy existing Chart instance if it exists
+			if (chartRef.current) {
+			  chartRef.current.destroy();
+			}
+	
 			const ctx = document.getElementById('myPieChart').getContext('2d');
-			new Chart(ctx, {
+			chartRef.current = new Chart(ctx, {
 			  type: 'pie',
 			  data: {
 				labels: ['Male', 'Female'],
@@ -30,10 +37,19 @@ const AboutUs = () => {
 				// Add options here if needed
 			  }
 			});
-		  })
-		  .catch(error => {
+		  } catch (error) {
 			console.error('Error fetching user statistics:', error);
-		  });
+		  }
+		};
+	
+		fetchUserStats();
+	
+		// Cleanup function to destroy the Chart instance on component unmount
+		return () => {
+		  if (chartRef.current) {
+			chartRef.current.destroy();
+		  }
+		};
 	  }, []);
 
   return (

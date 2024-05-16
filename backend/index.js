@@ -25,7 +25,7 @@ app.use(cookieParser());
 // Defining and using existing routes (e.g., auth, booking, chatbot etc.)
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/entries', require('./routes/entry')); 
-app.use('/api', require('./routes/stats'));
+app.use('/api/stats', require('./routes/stats'));
 app.use('/api/chatbot', require('./routes/chatbot'));
 app.use('/api/booking', require('./routes/Booking'));
 app.use('/api/payment', require('./routes/payment'));
