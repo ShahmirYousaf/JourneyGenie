@@ -10,7 +10,6 @@ const createEntry = async (req, res, next) => {
 
     try {
       const user = await User.findById(savedEntry.author);
-      // const user = await User.findOne({ userObj.email });
       user.entries.push(savedEntry._id);
       await user.save();
     } catch (err) {

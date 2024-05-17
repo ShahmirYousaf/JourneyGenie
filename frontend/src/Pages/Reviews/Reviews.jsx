@@ -12,14 +12,15 @@ const Reviews = () => {
     const [query, setQuery] = useState(""); 
     const { user } = useContext(AuthContext) 
     const { data, loading } = useFetch( 
-        `http://localhost:8080/entries/author/${user._id}`) 
+        `http://localhost:8080/api/entries/author/${user._id}`) 
   
     const keys = ["title", "location", "date"]; 
   
     const search = (data) => { 
+        console.log(data);
         return data.filter((item) => 
             keys.some((key) => item[key] && 
-                item[key].toLowerCase().includes(query)) 
+                item[key].toLowerCase().includes(query.toLowerCase())) 
         ); 
     }; 
   return (
@@ -45,8 +46,7 @@ const Reviews = () => {
                     <> 
                         <div className="p"
                             style={{ 
-                                color: "white", "fontFamily": 
-                                    "'Kaushan Script', cursive"
+                                color: "white"
                             }}> 
                             Loading... 
                         </div> 
@@ -55,7 +55,7 @@ const Reviews = () => {
                     <> 
                         {search(data)?.map((item, i) => ( 
                             <Card 
-                                key={i} // Remember to add a unique key 
+                                key={i} 
                                 _id={item._id} 
                                 photos={item.photos} 
                                 title={item.title} 

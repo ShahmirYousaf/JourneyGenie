@@ -1,7 +1,7 @@
 .search {
   position: relative;
-  background-color: var(--light-blue);
-  height: 300px;
+  background-image: repeating-linear-gradient(135deg, rgba(189, 189, 189, 0.1) 0px, rgba(189, 189, 189, 0.1) 2px, transparent 2px, transparent 4px), linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255));
+  height: 270px;
   background-size: cover;
 }
 
@@ -21,14 +21,14 @@
 }
 
 .searchBar h2 {
-  color: var(--dark);
+  color: #1D3D6E;
   text-align: center;
   font-size: 2.5em;
   margin-bottom: 20px;
 }
 
 .searchInput {
-  background-color: white;
+  background-color: #1D3D6E;
   padding: 5px 10px;
   border-radius: 50px;
   width: 400px;
@@ -37,11 +37,21 @@
   justify-content: space-around;
 }
 
+.searchInput::-moz-placeholder {
+  color: #FEBA3F;
+}
+
+.searchInput::placeholder {
+  color: #FEBA3F;
+}
+
 .searchInput input {
   border: none;
   height: 40px;
   width: 70%;
   padding: 0 10px;
+  background-color: #1D3D6E;
+  color: white;
 }
 
 .searchInput input:focus {
@@ -50,6 +60,7 @@
 
 .searchInput .icon {
   cursor: pointer;
+  color: #FEBA3F;
 }
 
 .searchedPosts {

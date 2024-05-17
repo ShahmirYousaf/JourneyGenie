@@ -64,7 +64,7 @@ const Navbar = () => {
                     </li>
                     </Link>
 
-                    <Link className='link-underline-issue' to="/create">
+                    <Link className='link-underline-issue' to="/PromptReview">
                     <li className="navItem-JG">
                         <p className="NavBarLinks-JG">Review</p>
                     </li>

@@ -8,12 +8,14 @@ const cookieParser = require("cookie-parser");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const connection = require("./database");
 const app = express();
+const path = require('path');
 
 
 // Database Connection
 connection();
 
 // Middleware
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(cookieParser()) 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -31,6 +33,7 @@ app.use('/api/booking', require('./routes/Booking'));
 app.use('/api/payment', require('./routes/payment'));
 app.use('/api/key', require('./routes/pkey'));
 app.use('/api/profile', require('./routes/profile'));
+app.use('/api/UploadPic', require('./routes/uploads'));
 
 
 // Start the server

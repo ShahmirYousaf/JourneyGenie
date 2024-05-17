@@ -91,6 +91,8 @@
   background-color: var(--Primarycolor);
   margin-top: 10px;
   width: 100%;
+  align-items: center;
+  border-radius: 3rem;
   justify-content: center;
   color: var(--whiteColor);
   font-weight: 550;
@@ -212,6 +214,7 @@
   }
   .footer .secContent .contactDiv .inputDiv .btn {
     width: 100%;
+    border-radius: 3rem;
   }
 }
 @media screen and (min-width: 840px) {

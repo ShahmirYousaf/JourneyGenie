@@ -18,8 +18,10 @@ import LanguageTranslation from './Pages/LanguageTranslation/LanguageTranslation
 import CurrencyConverter from './Pages/Currency/CurrencyConverter';
 import WeatherForecast from './Pages/WeatherForecast/WeatherForecast'
 import Checkoutform from './Pages/Checkout/Checkoutform';
-import AboutUs from './Pages/AboutUs/AboutUs'
-import Profile from './Pages/Profile/MyProfile'
+import AboutUs from './Pages/AboutUs/AboutUs';
+import Profile from './Pages/Profile/MyProfile';
+import Reviews from './Pages/Reviews/Reviews';
+import PromptReview from './Pages/PromptReview/PromptReview';
 
 const App = () => {
 
@@ -51,6 +53,10 @@ const App = () => {
         <Route path="/Weather" element={<WeatherForecast/>} />
         <Route path="/Profile" element={<Profile/>} />
         <Route path="/AboutUs" element={<AboutUs/>} />
+        <Route path="/view/:id" element={<ProtectedRoute><View/></ProtectedRoute>} />
+        <Route path="/Reviews/view/:id" element={<ProtectedRoute><View/></ProtectedRoute>} />
+        <Route path="/Reviews" element={<ProtectedRoute><Reviews/></ProtectedRoute>} />
+        <Route path="/PromptReview" element={<ProtectedRoute><PromptReview/></ProtectedRoute>} />
 
         {/* MORE ROUTES */}
 

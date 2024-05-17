@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
 import './CreateReview.css'
-import Navbar from '../../Components/Navbar/Navbar';
 
 const CreateReview = () => {
 
@@ -25,24 +24,50 @@ const CreateReview = () => {
   
         var newEntry 
   
-        if (files.length > 0) {
-            // Store image data URLs in local storage
-            const imageUrls = Array.from(files).map((file) => URL.createObjectURL(file)); 
-            localStorage.setItem('imageUrls', JSON.stringify(imageUrls));
+        // if (files.length > 0) {
+        //     // Store image data URLs in local storage
+        //     const imageUrls = Array.from(files).map((file) => URL.createObjectURL(file)); 
+        //     localStorage.setItem('imageUrls', JSON.stringify(imageUrls));
     
-            // Prepare newEntry with image URLs
-            newEntry = {
-                ...info,
-                author: user._id,
-                photos: imageUrls, // Use the stored image URLs
-            };
-        } else {
-            // If no files selected, create newEntry without photos
-            newEntry = {
-                ...info,
-                author: user._id,
-            };
+        //     // Prepare newEntry with image URLs
+        //     newEntry = {
+        //         ...info,
+        //         author: user._id,
+        //         photos: imageUrls, // Use the stored image URLs
+        //     };
+        // } else {
+        //     // If no files selected, create newEntry without photos
+        //     newEntry = {
+        //         ...info,
+        //         author: user._id,
+        //     };
+        // }
+
+        let fileNames = [];
+
+        if (files.length > 0) {
+            const formData = new FormData();
+            Array.from(files).forEach((file) => {
+            formData.append('photos', file);
+            });
+
+            try {
+            const uploadResponse = await axios.post('http://localhost:8080/api/UploadPic/upload', formData, {
+                headers: {
+                'Content-Type': 'multipart/form-data',
+                },
+            });
+            fileNames = uploadResponse.data.filenames;
+            } catch (err) {
+            console.error('Error uploading images', err);
+            }
         }
+
+        newEntry = {
+            ...info,
+            author: user._id,
+            photos: fileNames,
+        };
   
         try { 
             const response = await axios.post('http://localhost:8080/api/entries/', 
@@ -51,7 +76,7 @@ const CreateReview = () => {
             }) 
   
             // navigate(`/view/${response?.data?._id}`); 
-            navigate('/')
+            navigate('/PromptReview')
         } 
         catch (err) { 
             console.log(err) 
@@ -59,7 +84,6 @@ const CreateReview = () => {
     } 
   return (
     <div className='create'>  
-        <Navbar/>
         <div className="createContainer"> 
 
             <h1 className='CreateReviewHeading'>Create Review</h1>

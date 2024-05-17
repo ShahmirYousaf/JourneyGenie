@@ -7,21 +7,22 @@ import axios from "axios";
 
 const View = () => {
     const location = useLocation();
-    const loggedInUser = localStorage.getItem('LoggedInUser');
-    const userData = JSON.parse(loggedInUser);
-    const userId = userData._id;
+    
+    const id = location.pathname.split("/")[3]; 
 
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [slideNumber, setSlideNumber] = useState(0);
+
+    console.log(id)
 
     const navigate = useNavigate();
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/api/entries/author/${userId}`);
+                const response = await axios.get(`http://localhost:8080/api/entries/${id}`);
                 console.log('Fetched data:', response.data);
                 setData(response.data);
             } catch (err) {
@@ -33,12 +34,14 @@ const View = () => {
         };
 
         fetchData();
-    }, [userId]);
+    }, [id]);
 
     const handleDelete = async (entryId) => {
         try {
             await axios.delete(`http://localhost:8080/api/entries/${entryId}`);
-            setData(prevData => prevData.filter(entry => entry._id !== entryId));
+            // setData(prevData => prevData.filter(entry => entry._id !== entryId));
+            navigate('/Reviews')
+
         } catch (err) {
             console.log(err);
         }
@@ -56,58 +59,61 @@ const View = () => {
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error loading data</div>;
+    if (!data) return <div>No data available</div>;
 
     return (
         <div className='view'>
-            {data.map(entry => (
-                <div key={entry._id} className="postContainer">
-                    <div className="postPageBG">
-                        <div className="upperContent">
-                            <h1>{entry.title}</h1>
-                            <p>
-                                <FontAwesomeIcon className="icon" icon={faCalendar} /> 
-                                {entry.date}
-                            </p>
-                            <p>
-                                <FontAwesomeIcon className="icon" icon={faMapLocationDot} /> 
-                                {entry.location}
-                            </p>
-                        </div>
-                    </div>
+        <div key={data._id} className="postContainer">
+            <div className="postPageBG">
+                <div className="upperContent">
+                    <h1>{data.title}</h1>
+                    <p>
+                        <FontAwesomeIcon className="icon" icon={faCalendar} /> 
+                        {data.date}
+                    </p>
+                    <p>
+                        <FontAwesomeIcon className="icon" icon={faMapLocationDot} /> 
+                        {data.location}
+                    </p>
+                </div>
+            </div>
 
-                    <div className="leftContainer">
-                        {entry.photos ? (
-                            <div className="images">
-                                <img src={entry.photos[slideNumber]} height="300px" alt="" />
-                                {entry.photos.length > 1 && (
-                                    <div className="arrows">
-                                        <FontAwesomeIcon 
-                                            icon={faCircleArrowLeft} 
-                                            className="arrow"
-                                            onClick={() => handleMove("l", entry.photos.length)} 
-                                        />
-                                        <FontAwesomeIcon 
-                                            icon={faCircleArrowRight} 
-                                            className="arrow"
-                                            onClick={() => handleMove("r", entry.photos.length)} 
-                                        />
-                                    </div>
-                                )}
+            <div className="leftContainer">
+                {data.photos && data.photos.length > 0 ? (
+                    <div className="images">
+                        <img 
+                            src={`http://localhost:8080/uploads/${data.photos[slideNumber]}`} 
+                            height="300px" 
+                            alt="Error" 
+                        />
+                        {data.photos.length > 1 && (
+                            <div className="arrows">
+                                <FontAwesomeIcon 
+                                    icon={faCircleArrowLeft} 
+                                    className="arrow"
+                                    onClick={() => handleMove("l", data.photos.length)} 
+                                />
+                                <FontAwesomeIcon 
+                                    icon={faCircleArrowRight} 
+                                    className="arrow"
+                                    onClick={() => handleMove("r", data.photos.length)} 
+                                />
                             </div>
-                        ) : (
-                            "No Images"
                         )}
                     </div>
+                ) : (
+                    "No Images"
+                )}
+            </div>
 
-                    <div className="rightContainer">
-                        <p>" {entry.text} "</p>
-                        <button className="del_button" style={{ marginRight: "5px" }} onClick={() => handleDelete(entry._id)}>
-                            Delete
-                        </button>
-                    </div>
-                </div>
-            ))}
+            <div className="rightContainer">
+                <p>" {data.text} "</p>
+                <button className="del_button" style={{ marginRight: "5px" }} onClick={() => handleDelete(data._id)}>
+                    Delete
+                </button>
+            </div>
         </div>
+    </div>
     );
 }
 

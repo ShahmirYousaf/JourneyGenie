@@ -1,14 +1,16 @@
 import React from "react"; 
 import { Link } from "react-router-dom"; 
-import "../styles/card.css"; 
+import "./Card.css"; 
   
 function Card(props) { 
   
   
     return ( 
         <div className="Entry-card"> 
-            <div class="content"> 
-                <img id="post-image" src={props.photos[0]} 
+            <div class="Card-content"> 
+                {/* <img id="post-image" src={props.photos[0]} 
+                    alt="no content" />  */}
+                    <img id="post-image" src={`http://localhost:8080/uploads/${props.photos[0]}`} 
                     alt="no content" /> 
                 <h4>{props.title}</h4> 
                 <h6> 
@@ -19,7 +21,7 @@ function Card(props) {
                 </h6> 
                 <p>{props.text.slice(0, 60)}...</p> 
                 <Link to={`view/${props._id}`}> 
-                    <button>Read More</button> 
+                    <button className="read-more-Button">Read More</button> 
                 </Link> 
             </div> 
         </div> 

@@ -72,6 +72,8 @@
                 width: 100%;
                 gap: 1rem;
                 flex-direction: column;
+               
+              
 
                 .SubscribeInput{
                     width: 100%;
@@ -92,6 +94,8 @@
                     background-color: var(--Primarycolor);
                     margin-top: 10px;
                     width: 100%;
+                    align-items: center; 
+                    border-radius: 3rem;
                     justify-content: center;
                     color: var(--whiteColor);
                     font-weight: 550;
@@ -259,6 +263,7 @@
 
                 .btn{
                     width: 100%;
+                    border-radius: 3rem;
                 }
             }
            }
