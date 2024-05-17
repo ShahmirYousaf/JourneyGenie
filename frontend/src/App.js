@@ -73,6 +73,8 @@ const App = () => {
       </Routes> 
     </Router> 
 
+    // <Booking/>
+
   
   
   );
