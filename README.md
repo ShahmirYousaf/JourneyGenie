@@ -23,6 +23,7 @@ JourneyGenie is a user-friendly and intuitive web application that caters to the
 - **Language Translator**: Offer a built-in language translator feature that allows users to translate phrases, directions, menus, and other essential information into their preferred language.
 - **Currency Converter**: Integrate a currency converter tool that enables users to convert currency rates and calculate expenses in their home currency.
 - **Weather Forecast Integration**: Integrate weather forecast data into the travel planner to provide users with real-time weather updates for their destination.
+- **Chat Bot**: Integrate a chat bot to help user with their queries.
 
 ## Getting Started
 
