@@ -35,7 +35,7 @@ To get started with JourneyGenie, simply sign up for an account and start explor
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB
 - **AI Algorithms**: Machine learning algorithms for personalized recommendations like KNN, Content-Based Filtering, Cosine Similarity and Jaccard Similarity.
-- **API Integrations**: Weather forecast API, language translation API, currency conversion API
+- **API Integrations**: Weather forecast API, language translation API, currency conversion API, Chat Bot API
 
 ## Contributing
 
