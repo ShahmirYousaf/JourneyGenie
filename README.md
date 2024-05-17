@@ -32,7 +32,7 @@ To get started with JourneyGenie, simply sign up for an account and start explor
 ## Technologies Used
 
 - **Frontend**: React
-- **Backend**: Node.js, Express.js
+- **Backend**: Node.js, Express.js, Flask
 - **Database**: MongoDB
 - **AI Algorithms**: Machine learning algorithms for personalized recommendations like KNN, Content-Based Filtering, Cosine Similarity and Jaccard Similarity.
 - **API Integrations**: Weather forecast API, language translation API, currency conversion API, Chat Bot API
