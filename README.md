@@ -23,6 +23,7 @@ JourneyGenie is a user-friendly and intuitive web application that caters to the
 - **Language Translator**: Offer a built-in language translator feature that allows users to translate phrases, directions, menus, and other essential information into their preferred language.
 - **Currency Converter**: Integrate a currency converter tool that enables users to convert currency rates and calculate expenses in their home currency.
 - **Weather Forecast Integration**: Integrate weather forecast data into the travel planner to provide users with real-time weather updates for their destination.
+- **Chat Bot**: Integrate a chat bot to help user with their queries.
 
 ## Getting Started
 
@@ -31,10 +32,10 @@ To get started with JourneyGenie, simply sign up for an account and start explor
 ## Technologies Used
 
 - **Frontend**: React
-- **Backend**: Node.js, Express.js
+- **Backend**: Node.js, Express.js, Flask
 - **Database**: MongoDB
 - **AI Algorithms**: Machine learning algorithms for personalized recommendations like KNN, Content-Based Filtering, Cosine Similarity and Jaccard Similarity.
-- **API Integrations**: Weather forecast API, language translation API, currency conversion API
+- **API Integrations**: Weather forecast API, language translation API, currency conversion API, Chat Bot API
 
 ## Contributing
 
