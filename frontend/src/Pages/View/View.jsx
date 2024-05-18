@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './View.css';
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const View = () => {
     const location = useLocation();
@@ -37,14 +38,35 @@ const View = () => {
     }, [id]);
 
     const handleDelete = async (entryId) => {
-        try {
-            await axios.delete(`http://localhost:8080/api/entries/${entryId}`);
-            // setData(prevData => prevData.filter(entry => entry._id !== entryId));
-            navigate('/Reviews')
-
-        } catch (err) {
-            console.log(err);
-        }
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this action!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#1D3D6E',
+            cancelButtonColor: '#FEBA3F',
+            confirmButtonText: 'Yes, Delete it!'
+          }).then(async (result) => {
+            if (result.isConfirmed) {
+              try {
+                await axios.delete(`http://localhost:8080/api/entries/${entryId}`);
+        
+                Swal.fire(
+                  'Review Deleted!',
+                  'success'
+                ).then(() => {
+                  navigate('/Reviews');
+                });
+              } catch (err) {
+                console.log(err);
+                Swal.fire(
+                  'Error!',
+                  'An error occurred while Deleting.',
+                  'error'
+                );
+              }
+            }
+          });
     };
 
     const handleMove = (direction, size) => {

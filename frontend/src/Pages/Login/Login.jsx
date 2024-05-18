@@ -4,6 +4,7 @@ import logo from '../../Assets/jg-logo.png'
 import { useNavigate, Link } from "react-router-dom"; 
 import axios from 'axios';
 import { AuthContext } from '../../authContext';
+import Swal from "sweetalert2";
 
 const Login = () => {
 
@@ -61,18 +62,30 @@ const handleSubmit = async (e) => {
       type: "LOGIN_SUCCESS", 
       payload: response.data.details 
     }); 
-    console.log(response.data.details)
-    alert("Login Successful")
-    navigate('/');
+    Swal.fire({
+      title: "Login Successful!",
+      text: "You are heading towards Home page!",
+      icon: "success"
+    }).then(() => {
+      navigate('/');
+    });
   } catch (error) {
-    setErrors(error.response.data.error); // handle error
+    setErrors({
+      general: error.response.data.error || "An error occurred"
+    });
+    console.log(error.response.data)
+    Swal.fire({
+      title: "Login Failed!",
+      text: error.response.data.message,
+      icon: "error"
+    })
     dispatch({ 
       type: "LOGIN_FAILURE", 
       payload: "An error occurred while logging in" 
     }); 
   }
   
-  console.log('Form submitted:', formData);
+  // console.log('Form submitted:', formData);
 };
 
   return (
@@ -92,7 +105,8 @@ const handleSubmit = async (e) => {
                     onChange={handleChange}
                     required
                 />
-                {errors.email && <div className="error">{errors.email}</div>}
+                {/* {errors.email && <div className="error">{errors.email}</div>}
+                {errors.general && <div className="error">{errors.general}</div>} */}
 
                 <label htmlFor="password">Password</label>
                 <input
@@ -104,7 +118,7 @@ const handleSubmit = async (e) => {
                     onChange={handleChange}
                     required
                 />
-                {errors.password && <div className="error">{errors.password}</div>}
+                {/* {errors.password && <div className="error">{errors.password}</div>} */}
 
                 <div className="signup-link">
                   Don't have an account? <Link to="/Signup">Sign Up</Link>

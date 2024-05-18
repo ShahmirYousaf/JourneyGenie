@@ -5,7 +5,7 @@ import {AiFillCloseCircle} from 'react-icons/ai'
 import {TbGridDots} from 'react-icons/tb'
 import { Link, useNavigate  } from 'react-router-dom';
 import { AuthContext } from '../../authContext'
-import Home from '../../Pages/Home/Home'
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
 
@@ -25,11 +25,40 @@ const Navbar = () => {
 
     const handleClick = async (e) => { 
         e.preventDefault(); 
-        localStorage.removeItem("token");
-        localStorage.removeItem("sessionId");
-        localStorage.removeItem("LoggedInUser");
-        dispatch({ type: "LOGOUT" }); 
-        navigate("/Login") 
+        // localStorage.removeItem("token");
+        // localStorage.removeItem("sessionId");
+        // localStorage.removeItem("LoggedInUser");
+        // dispatch({ type: "LOGOUT" }); 
+        // navigate("/Login") 
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this action!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#1D3D6E',
+            cancelButtonColor: '#FEBA3F',
+            confirmButtonText: 'Yes, log out!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // Clear local storage
+              localStorage.removeItem("token");
+              localStorage.removeItem("sessionId");
+              localStorage.removeItem("LoggedInUser");
+              
+              // Dispatch logout action
+              dispatch({ type: "LOGOUT" });
+        
+              // Navigate to login page
+              navigate("/Login");
+        
+              Swal.fire(
+                'Logged Out!',
+                'You have been logged out.',
+                'success'
+              );
+            }
+          });
     } 
 
   return (
