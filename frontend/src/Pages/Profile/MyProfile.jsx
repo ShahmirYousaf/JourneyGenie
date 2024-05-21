@@ -72,7 +72,7 @@ const MyProfile = () => {
         <span className="e-label">{profile.email}</span>
       </div>
 
-      <div className="my-travel-history">Review History</div>
+      <div className="my-travel-history">History</div>
       {profile.entries.map((entry, index) => (
         <div key={index} className="entry">
       <div className="rectangle-div" />
