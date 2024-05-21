@@ -222,7 +222,7 @@ const Home = () => {
             <div className="blogContent">
               <h3>Nomadic Matt</h3>
               <p>The website that has been featured in major media time and time again because it’s got the best budget advice out there.</p>
-              <a href="https://www.nomadicmatt.com/">Read More</a>
+              <a href="https://www.nomadicmatt.com/" target='_blank' rel="noreferrer">Read More</a>
             </div>
           </div>
           <div className="blogPost">
@@ -230,7 +230,7 @@ const Home = () => {
             <div className="blogContent">
               <h3>Travel Floss</h3>
               <p>Explore hidden gems, local cultures and enjoy your life to the fullest. </p>
-              <a href="https://www.travelfoss.com/">Read More</a>
+              <a href="https://www.travelfoss.com/" target='_blank' rel="noreferrer">Read More</a>
             </div>
           </div>
         </div>

@@ -55,9 +55,9 @@ const Footer = () => {
 
             <div data-aos="fade-up" className="footerSocials flex">
               <AiOutlineTwitter className="icon" />
-              <AiOutlineYoutube className="icon" />
-              <AiOutlineInstagram className="icon"/>
-              <a href='https://www.tripadvisor.com/'><FaTripadvisor className="icon"/></a>
+              <a href='https://www.youtube.com/@JourneyGenie11' target='_blank' rel="noreferrer"><AiOutlineYoutube className="icon" /></a>
+              <a href='https://www.instagram.com/journeygenie_web/' target='_blank' rel="noreferrer"><AiOutlineInstagram className="icon"/></a>
+              <a href='https://www.tripadvisor.com/' target='_blank' rel="noreferrer"><FaTripadvisor className="icon"/></a>
 
             </div>
           </div>

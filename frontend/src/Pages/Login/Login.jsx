@@ -68,7 +68,7 @@ const handleSubmit = async (e) => {
       icon: "success"
     }).then(() => {
       navigate('/');
-    });
+    }, 1000);
   } catch (error) {
     setErrors({
       general: error.response.data.error || "An error occurred"

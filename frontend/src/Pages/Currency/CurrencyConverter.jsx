@@ -70,6 +70,7 @@ const CurrencyConverter = () => {
           <option value="QAR">QAR</option>
           <option value="THB">THB</option>
           <option value="AUD">AUD</option>
+          <option value="PKR">PKR</option>
           
           {/* Add more currency options as needed */}
         </select>
@@ -88,6 +89,7 @@ const CurrencyConverter = () => {
           <option value="QAR">QAR</option>
           <option value="THB">THB</option>
           <option value="AUD">AUD</option>
+          <option value="PKR">PKR</option>
           
           {/* Add more currency options as needed */}
         </select>

@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState } from 'react';
 import "./MyProfile.css";
 import pro from '../../Assets/pro.jpg';
-import ge from '../../Assets/ge.jpg';
+import bg from '../../Assets/doddlebg.jpg';
 import prof from '../../Assets/prof.svg';
 import axios from 'axios';
 import { AuthContext } from '../../authContext'; 
@@ -36,6 +36,7 @@ const MyProfile = () => {
       })
         .then(response => {
           console.log('Fetched profile data:', response.data); // Log the fetched data
+          console.log(profile.entries.photo)
           setProfile(response.data);
         })
         .catch(error => console.error('Error fetching profile data:', error));
@@ -72,15 +73,17 @@ const MyProfile = () => {
         <span className="e-label">{profile.email}</span>
       </div>
 
-      <div className="my-travel-history">History</div>
+      <div className="my-travel-history">Review History</div>
+      <div className="entries-container">
       {profile.entries.map((entry, index) => (
         <div key={index} className="entry">
       <div className="rectangle-div" />
-          <img className="rectangle-icon" alt="" src={ge} />
+          <img className="rectangle-icon" alt="" src={`http://localhost:8080/uploads/${entry.photo}`}  />
           <div className="location">{entry.location}</div>
           <div className="date">{entry.date}</div>
         </div>
       ))}
+      </div>
     </div>
   );
 };

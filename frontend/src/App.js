@@ -47,11 +47,11 @@ const App = () => {
         <Route path="/Currency" element={<CurrencyConverter/>} />
         <Route path="/LanguageTranslation" element={<LanguageTranslation/>} />
         <Route path="/ChatBot" element={<ChatBot/>} />
-        <Route path="/Booking/Checkout" element={<Checkoutform/>} />
+        <Route path="/Booking/Checkout" element={<ProtectedRoute><Checkoutform/> </ProtectedRoute>} />
         <Route path="/create" element={<ProtectedRoute><CreateReview/></ProtectedRoute>} /> 
         <Route path="/view" element={<ProtectedRoute><View/></ProtectedRoute>} />
         <Route path="/Weather" element={<WeatherForecast/>} />
-        <Route path="/Profile" element={<Profile/>} />
+        <Route path="/Profile" element={<ProtectedRoute><Profile/> </ProtectedRoute>} />
         <Route path="/AboutUs" element={<AboutUs/>} />
         <Route path="/view/:id" element={<ProtectedRoute><View/></ProtectedRoute>} />
         <Route path="/Reviews/view/:id" element={<ProtectedRoute><View/></ProtectedRoute>} />

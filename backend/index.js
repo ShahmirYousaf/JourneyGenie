@@ -22,7 +22,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(helmet()); 
 app.use(morgan("dev"));
-app.use(cookieParser());
 
 // Defining and using existing routes (e.g., auth, booking, chatbot etc.)
 app.use('/api/auth', require('./routes/auth'));
