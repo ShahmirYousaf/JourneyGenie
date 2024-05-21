@@ -10,7 +10,8 @@ const PromptReview = () => {
     <div className="content-container">
       <div className="prompt-button-container">
         <Link to="/create" className="prompt-review-button">Create Review</Link>
-        <Link to="/Reviews" className="prompt-review-button">View Reviews</Link>
+        <Link to="/Reviews" className="prompt-review-button">View Own Reviews</Link>
+        <Link to="/AllReviews" className="prompt-review-button">View All Reviews</Link>
       </div>
     </div>
   </div>

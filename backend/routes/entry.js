@@ -14,6 +14,6 @@ router.post("/", createEntry);
 router.put("/:id", updateEntry); 
 router.delete("/:id", deleteEntry); 
 router.get("/author/:userId", getEntries); 
-router.get("/:id", getEntry) 
+router.get("/:id", getEntry);
   
 module.exports = router;

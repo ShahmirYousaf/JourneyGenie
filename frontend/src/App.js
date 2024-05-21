@@ -22,6 +22,7 @@ import AboutUs from './Pages/AboutUs/AboutUs';
 import Profile from './Pages/Profile/MyProfile';
 import Reviews from './Pages/Reviews/Reviews';
 import PromptReview from './Pages/PromptReview/PromptReview';
+import AllReviews from './Pages/AllReviews/AllReviews';
 
 const App = () => {
 
@@ -56,6 +57,7 @@ const App = () => {
         <Route path="/view/:id" element={<ProtectedRoute><View/></ProtectedRoute>} />
         <Route path="/Reviews/view/:id" element={<ProtectedRoute><View/></ProtectedRoute>} />
         <Route path="/Reviews" element={<ProtectedRoute><Reviews/></ProtectedRoute>} />
+        <Route path="/AllReviews" element={<ProtectedRoute><AllReviews/></ProtectedRoute>} />
         <Route path="/PromptReview" element={<ProtectedRoute><PromptReview/></ProtectedRoute>} />
 
         {/* MORE ROUTES */}

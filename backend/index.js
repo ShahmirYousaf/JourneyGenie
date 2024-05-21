@@ -33,6 +33,7 @@ app.use('/api/payment', require('./routes/payment'));
 app.use('/api/key', require('./routes/pkey'));
 app.use('/api/profile', require('./routes/profile'));
 app.use('/api/UploadPic', require('./routes/uploads'));
+app.use('/api', require('./routes/allEntries'));
 
 
 // Start the server

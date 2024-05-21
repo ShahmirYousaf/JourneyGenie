@@ -7,6 +7,7 @@ import italyImage from '../../Assets/italy.jpg';
 import egyptImage from '../../Assets/egypt.jpg';
 import alaskaImage from '../../Assets/alaska.jpg';
 import koreaImage from '../../Assets/korea.jpg';
+import pakImage from '../../Assets/pakistan.jpg';
 import './booking.css';
 import Navbar from '../../Components/Navbar/Navbar';
 import { useNavigate } from "react-router-dom"; 
@@ -41,6 +42,7 @@ const Booking = () => {
     Egypt: egyptImage,
     Alaska: alaskaImage,
     Korea: koreaImage,
+    Pakistan: pakImage,
   };
 
   const filteredTourPackages = tourPackages.filter(tour => 
