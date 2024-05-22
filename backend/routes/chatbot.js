@@ -10,15 +10,18 @@ router.post('/chat', async (req, res) => {
   try {
     const response = await axios.get(process.env.API_URL, {
       params: {
-        // bid: process.env.BOT_ID,
-        // key: process.env.API_KEY,
         uid: sessionId, 
         msg: message,
       },
+      
     });
-
+    if (response.data && response.data.cnt) {
     console.log(response);
     res.json({ response: response.data.cnt });
+    }
+    else {
+      res.json({ response: "Hi! I am here to assist you with your travel queries" });
+    }
   } catch (error) {
     console.error('Error sending message to BrainShop API:', error);
     res.status(500).json({ error: 'Internal Server Error' });

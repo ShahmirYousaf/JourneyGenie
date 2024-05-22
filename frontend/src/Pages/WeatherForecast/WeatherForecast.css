@@ -7,12 +7,12 @@
   overflow-y: auto;
 }
 
-.display-temp .search {
-  width: 100%;
+.weather-search {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .display-temp #search-bar {

@@ -134,7 +134,7 @@ const Signup = () => {
                   onChange={handleChange}
                   required
                 />
-                {/* {errors.firstName && <div className="error">{errors.firstName}</div>} */}
+                {errors.firstName && <div className="error">{errors.firstName}</div>}
               </div>
               <div className="form-group">
                 <label htmlFor="lastName">Last Name</label>
@@ -146,7 +146,7 @@ const Signup = () => {
                   onChange={handleChange}
                   required
                 />
-                {/* {errors.lastName && <div className="error">{errors.lastName}</div>} */}
+                {errors.lastName && <div className="error">{errors.lastName}</div>}
               </div>
             </div>
             <div className="form-row">
@@ -160,7 +160,7 @@ const Signup = () => {
                   onChange={handleChange}
                   required
                 />
-                {/* {errors.country && <div className="error">{errors.country}</div>} */}
+                {errors.country && <div className="error">{errors.country}</div>}
               </div>
               <div className="form-group">
                 <label htmlFor="age">Age</label>
@@ -172,7 +172,7 @@ const Signup = () => {
                   onChange={handleChange}
                   required
                 />
-                {/* {errors.age && <div className="error">{errors.age}</div>} */}
+                {errors.age && <div className="error">{errors.age}</div>}
               </div>
             </div>
             <div className="form-row">
@@ -186,7 +186,7 @@ const Signup = () => {
                   onChange={handleChange}
                   required
                 />
-                {/* {errors.gender && <div className="error">{errors.gender}</div>} */}
+                {errors.gender && <div className="error">{errors.gender}</div>}
               </div>
               <div className="form-group">
                 <label htmlFor="travelPreferences">Travel Preferences</label>
@@ -198,7 +198,7 @@ const Signup = () => {
                   onChange={handleChange}
                   required
                 />
-                {/* {errors.travelPreferences && <div className="error">{errors.travelPreferences}</div>} */}
+                {errors.travelPreferences && <div className="error">{errors.travelPreferences}</div>}
               </div>
             </div>
             <div className="form-row">
@@ -212,7 +212,7 @@ const Signup = () => {
                   onChange={handleChange}
                   required
                 />
-                {/* {errors.email && <div className="error">{errors.email}</div>} */}
+                {errors.email && <div className="error">{errors.email}</div>}
               </div>
               <div className="form-group">
                 <label htmlFor="password">Password</label>
@@ -224,7 +224,7 @@ const Signup = () => {
                   onChange={handleChange}
                   required
                 />
-                {/* {errors.password && <div className="error">{errors.password}</div>} */}
+                {errors.password && <div className="error">{errors.password}</div>}
               </div>
             </div>
             <div className="Login-link">

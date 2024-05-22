@@ -25,15 +25,16 @@
     align-items: center; 
     transition: 0.5s; 
     color: whitesmoke;
+    width: 100%;
 } 
 
   
 .Entry-card .Card-content img { 
     height: 210px; 
     width: 330px; 
-    overflow: hidden; 
+    object-fit: cover; 
     padding: 6px; 
-    margin-top: -50px;
+    margin-top: -40px;
 } 
   
   
