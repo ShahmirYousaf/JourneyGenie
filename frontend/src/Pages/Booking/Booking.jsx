@@ -6,7 +6,7 @@ import switzImage from '../../Assets/switz.jpg';
 import italyImage from '../../Assets/italy.jpg';
 import egyptImage from '../../Assets/egypt.jpg';
 import alaskaImage from '../../Assets/alaska.jpg';
-import koreaImage from '../../Assets/korea.jpg';
+import koreaImage from '../../Assets/southkorea.jpg';
 import pakImage from '../../Assets/pakistan.jpg';
 import './booking.css';
 import Navbar from '../../Components/Navbar/Navbar';
